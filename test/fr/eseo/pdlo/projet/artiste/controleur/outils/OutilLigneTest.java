@@ -29,7 +29,7 @@ public class OutilLigneTest {
         root.setVisible(true);
 
         OutilLigne outil = new OutilLigne();
-        outil.setPanneauDessin(panneauDessin);
         panneauDessin.associerOutil(outil);
+        outil.setPanneauDessin(panneauDessin);
     }
 }

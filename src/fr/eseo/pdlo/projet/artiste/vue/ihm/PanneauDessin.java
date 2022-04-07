@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JPanel;
+import javax.swing.event.MouseInputListener;
 
 import fr.eseo.pdlo.projet.artiste.controleur.outils.Outil;
 import fr.eseo.pdlo.projet.artiste.vue.formes.VueForme;
@@ -49,6 +50,7 @@ public class PanneauDessin extends JPanel {
     
     public void associerOutil(Outil outil) {
         setOutilCourant(outil);
+        this.addMouseListener(outil);
     }
 
     public void dissocierOutil() {

@@ -8,7 +8,7 @@ public class OutilLigne extends OutilForme {
 
     @Override
     protected VueForme creerVueForme() {
-        if (this.getDebut() != this.getFin()) {
+        if (this.getFin() != null) {
             double largeur = getFin().getAbscisse() - getDebut().getAbscisse();
             double hauteur = getFin().getOrdonnee() - getDebut().getOrdonnee();
             return new VueLigne(new Ligne(getDebut(), largeur, hauteur));

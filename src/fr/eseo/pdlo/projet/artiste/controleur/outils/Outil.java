@@ -20,7 +20,6 @@ public abstract class Outil implements javax.swing.event.MouseInputListener {
     }
 
     public void mouseClicked(MouseEvent event) {
-
     }
 
     public void mouseDragged(MouseEvent event) {
@@ -40,11 +39,11 @@ public abstract class Outil implements javax.swing.event.MouseInputListener {
     }
 
     public void mousePressed(MouseEvent event) {
-        debut = new Coordonnees(event.getX(), event.getY());
+        setDebut(new Coordonnees(event.getX(), event.getY()));
     }
 
     public void mouseReleased(MouseEvent event) {
-        fin = new Coordonnees(event.getX(), event.getY());
+        setFin(new Coordonnees(event.getX(), event.getY()));
     }
 
     public Coordonnees getDebut() {
