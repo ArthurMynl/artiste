@@ -1,34 +1,34 @@
-package fr.eseo.pdlo.projet.artiste.controleur.outils;
+package fr.eseo.pdlo.projet.artiste.vue.ihm;
 
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
-import fr.eseo.pdlo.projet.artiste.vue.ihm.PanneauDessin;
+import java.awt.BorderLayout;
 
-public class OutilLigneTest {
+public class PanneauBarreEtatTest {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new OutilLigneTest();
+                new PanneauBarreEtatTest();
             }
         });
     }
 
-    public OutilLigneTest() {
-        testDessin();
+    public PanneauBarreEtatTest() {
+        testBarreEtat();
     }
 
-    private void testDessin() {
+    private void testBarreEtat() {
         JFrame root = new JFrame("Etre un Artiste");
         PanneauDessin panneauDessin = new PanneauDessin();
+        PanneauBarreEtat panneauBarreEtat = new PanneauBarreEtat(panneauDessin);
+
+        root.add(panneauBarreEtat, BorderLayout.SOUTH);
         root.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         root.setLocationRelativeTo(null);
         root.add(panneauDessin);
         root.pack();
         root.setVisible(true);
-
-        OutilLigne outil = new OutilLigne();
-        panneauDessin.associerOutil(outil);
     }
 }

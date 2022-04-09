@@ -4,7 +4,7 @@ import fr.eseo.pdlo.projet.artiste.modele.Coordonnees;
 
 public abstract class Forme {
     public static final double LARGEUR_PAR_DEFAUT = 150;
-    public static final double HAUTEUR_PAR_DEFAUT = 200;
+    public static final double HAUTEUR_PAR_DEFAUT = 190;
     private double largeur;
     private double hauteur;
     private Coordonnees position;

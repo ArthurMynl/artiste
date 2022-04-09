@@ -5,17 +5,17 @@ import javax.swing.SwingUtilities;
 
 import fr.eseo.pdlo.projet.artiste.vue.ihm.PanneauDessin;
 
-public class OutilLigneTest {
+public class OutilCercleTest {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new OutilLigneTest();
+                new OutilCercleTest();
             }
         });
     }
 
-    public OutilLigneTest() {
+    public OutilCercleTest() {
         testDessin();
     }
 
@@ -28,7 +28,8 @@ public class OutilLigneTest {
         root.pack();
         root.setVisible(true);
 
-        OutilLigne outil = new OutilLigne();
+        OutilCercle outil = new OutilCercle();
         panneauDessin.associerOutil(outil);
     }
 }
+

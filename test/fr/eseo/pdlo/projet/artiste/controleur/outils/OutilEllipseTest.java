@@ -5,17 +5,17 @@ import javax.swing.SwingUtilities;
 
 import fr.eseo.pdlo.projet.artiste.vue.ihm.PanneauDessin;
 
-public class OutilLigneTest {
+public class OutilEllipseTest {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new OutilLigneTest();
+                new OutilEllipseTest();
             }
         });
     }
 
-    public OutilLigneTest() {
+    public OutilEllipseTest() {
         testDessin();
     }
 
@@ -28,7 +28,7 @@ public class OutilLigneTest {
         root.pack();
         root.setVisible(true);
 
-        OutilLigne outil = new OutilLigne();
+        OutilEllipse outil = new OutilEllipse();
         panneauDessin.associerOutil(outil);
     }
 }

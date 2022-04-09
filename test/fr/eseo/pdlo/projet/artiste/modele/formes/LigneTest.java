@@ -7,6 +7,10 @@ import org.junit.jupiter.api.Test;
 import fr.eseo.pdlo.projet.artiste.modele.Coordonnees;
 
 public class LigneTest {
+
+    LigneTest() {
+    }
+
     @Test
     void testLigne() {
         Ligne ligne = new Ligne();

@@ -9,6 +9,9 @@ import fr.eseo.pdlo.projet.artiste.modele.Coordonnees;
 
 public class EllipseTest {
 
+    EllipseTest() {
+    }
+
     @Test
     void testEllipse() {
         Ellipse ellipse = new Ellipse();

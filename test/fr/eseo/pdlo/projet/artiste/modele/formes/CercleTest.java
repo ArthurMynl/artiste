@@ -8,6 +8,10 @@ import org.junit.jupiter.api.Test;
 import fr.eseo.pdlo.projet.artiste.modele.Coordonnees;
 
 public class CercleTest {
+
+    CercleTest() {
+    }
+
     @Test
     void testCercle() {
         Cercle cercle = new Cercle();
@@ -137,7 +141,7 @@ public class CercleTest {
         assertEquals(10, cercle.getPosition().getOrdonnee());
     }
 
-    @Test 
+    @Test
     void testContient() {
         Cercle cercle = new Cercle(new Coordonnees(10, 10), 50.5);
         assertEquals(true, cercle.contient(new Coordonnees(20, 20)));
