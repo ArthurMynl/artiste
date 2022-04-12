@@ -7,17 +7,13 @@ import org.junit.jupiter.api.Test;
 import fr.eseo.pdlo.projet.artiste.modele.Coordonnees;
 
 public class LigneTest {
-
-    LigneTest() {
-    }
-
     @Test
     void testLigne() {
         Ligne ligne = new Ligne();
         assertEquals(0, ligne.getPosition().getAbscisse());
         assertEquals(0, ligne.getPosition().getOrdonnee());
         assertEquals(150, ligne.getLargeur());
-        assertEquals(200, ligne.getHauteur());
+        assertEquals(190, ligne.getHauteur());
     }
 
     @Test
@@ -26,7 +22,7 @@ public class LigneTest {
         assertEquals(10, ligne.getPosition().getAbscisse());
         assertEquals(10, ligne.getPosition().getOrdonnee());
         assertEquals(150, ligne.getLargeur());
-        assertEquals(200, ligne.getHauteur());
+        assertEquals(190, ligne.getHauteur());
     }
 
     @Test
@@ -109,9 +105,8 @@ public class LigneTest {
     void testToString() {
         Ligne ligne = new Ligne(new Coordonnees(10, 10), -5, 20);
         Ligne ligne2 = new Ligne(new Coordonnees(10, 10), 5, -20);
-        assertEquals("[Ligne] c1 : (10,0 , 10,0) c2 : (15,0 , -10,0) longueur : 20,62 angle : 284,04°",
-                ligne2.toString());
-        assertEquals("[Ligne] c1 : (10,0 , 10,0) c2 : (5,0 , 30,0) longueur : 20,62 angle : 104,04°", ligne.toString());
+        assertEquals("[Ligne] c1 : (10,0 , 10,0) c2 : (5,0 , 30,0) longueur : 20,62 angle : 104,04° couleur = R0,V0,B0", ligne.toString());
+        assertEquals("[Ligne] c1 : (10,0 , 10,0) c2 : (15,0 , -10,0) longueur : 20,62 angle : 284,04° couleur = R0,V0,B0", ligne2.toString());
     }
 
     @Test
@@ -148,5 +143,18 @@ public class LigneTest {
         assertEquals(true, ligne2.contient(new Coordonnees(0, -2)));
         assertEquals(true, ligne2.contient(new Coordonnees(0, 0)));
         assertEquals(false, ligne2.contient(new Coordonnees(2, -2)));
+    }
+
+    @Test
+    void testGetCouleur() {
+        Ligne ligne = new Ligne();
+        assertEquals(new java.awt.Color(0, 0, 0), ligne.getCouleur());
+    }
+
+    @Test
+    void testSetCouleur() {
+        Ligne ligne = new Ligne();
+        ligne.setCouleur(new java.awt.Color(1, 1, 1));
+        assertEquals(new java.awt.Color(1, 1, 1), ligne.getCouleur());
     }
 }

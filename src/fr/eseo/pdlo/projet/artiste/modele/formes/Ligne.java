@@ -1,6 +1,7 @@
 package fr.eseo.pdlo.projet.artiste.modele.formes;
 
 import java.text.DecimalFormat;
+import java.util.Locale;
 
 import fr.eseo.pdlo.projet.artiste.modele.Coordonnees;
 
@@ -56,12 +57,23 @@ public class Ligne extends Forme {
         df.setMaximumFractionDigits(2);
         df.setMinimumFractionDigits(1);
         double angle = getC1().angleVers(getC2()) * 180 / Math.PI;
+        String rgb;
         if (angle < 0) {
             angle += 360;
         }
-        return String.format("[%s] c1 : %S c2 : %S longueur : %s angle : %s\u00B0",
+        if (Locale.getDefault().getLanguage().equals("fr")) {
+            rgb = "R" + getCouleur().getRed() + ",V" + getCouleur().getGreen() + ",B"
+                    + getCouleur().getBlue();
+        }
+        else {
+            System.out.println("Locale.getDefault() = " + Locale.getDefault());
+            rgb = "R" + getCouleur().getRed() + ",G" + getCouleur().getGreen() + ",B"
+                    + getCouleur().getBlue();
+        }
+
+        return String.format("[%s] c1 : %S c2 : %S longueur : %s angle : %s\u00B0 couleur = %s",
                 getClass().getSimpleName(), getC1().toString(), getC2().toString(),
-                df.format(perimetre()), df.format(angle));
+                df.format(perimetre()), df.format(angle), rgb);
     }
 
     @Override

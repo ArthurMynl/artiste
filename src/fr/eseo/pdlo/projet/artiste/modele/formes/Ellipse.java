@@ -1,6 +1,7 @@
 package fr.eseo.pdlo.projet.artiste.modele.formes;
 
 import java.text.DecimalFormat;
+import java.util.Locale;
 
 import fr.eseo.pdlo.projet.artiste.modele.Coordonnees;
 
@@ -43,11 +44,20 @@ public class Ellipse extends Forme {
         df.setGroupingUsed(false);
         double petitRayon = Math.min(this.getHauteur(), this.getLargeur()) / 2;
         double grandRayon = Math.max(this.getHauteur(), this.getLargeur()) / 2;
+        String rgb;
+        if (Locale.getDefault().getLanguage().equals("fr")) {
+            rgb = "R" + getCouleur().getRed() + ",V" + getCouleur().getGreen() + ",B"
+                    + getCouleur().getBlue();
+        } else {
+            System.out.println("Locale.getDefault() = " + Locale.getDefault());
+            rgb = "R" + getCouleur().getRed() + ",G" + getCouleur().getGreen() + ",B"
+                    + getCouleur().getBlue();
+        }
 
         return "[Ellipse] : pos " + this.getPosition().toString() + " petit rayon "
                 + df.format(petitRayon)
                 + " grand rayon " + df.format(grandRayon) + " périmètre : "
-                + df.format(this.perimetre()) + " aire : " + df.format(this.aire());
+                + df.format(this.perimetre()) + " aire : " + df.format(this.aire()) + " couleur = " + rgb;
     }
 
     @Override

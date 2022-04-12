@@ -1,14 +1,10 @@
 package fr.eseo.pdlo.projet.artiste.modele;
 
 
-public class Coloriable {
+public interface Coloriable {
     
-    public java.awt.Color getCouleur() {
-        return null;
-    }
+    public java.awt.Color getCouleur();
 
-    public void setColor() {
-        
-    }
+    public void setCouleur(java.awt.Color couleur);
     
 }

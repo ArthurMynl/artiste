@@ -1,6 +1,7 @@
 package fr.eseo.pdlo.projet.artiste.modele.formes;
 
 import java.text.DecimalFormat;
+import java.util.Locale;
 
 import fr.eseo.pdlo.projet.artiste.modele.Coordonnees;
 
@@ -43,8 +44,18 @@ public class Cercle extends Ellipse {
         df.setMaximumFractionDigits(2);
         df.setMinimumFractionDigits(1);
         df.setGroupingUsed(false);
+        String rgb;
+        if (Locale.getDefault().getLanguage().equals("fr")) {
+            rgb = "R" + getCouleur().getRed() + ",V" + getCouleur().getGreen() + ",B"
+                    + getCouleur().getBlue();
+        } else {
+            System.out.println("Locale.getDefault() = " + Locale.getDefault());
+            rgb = "R" + getCouleur().getRed() + ",G" + getCouleur().getGreen() + ",B"
+                    + getCouleur().getBlue();
+        }
         return "[Cercle] : pos " + this.getPosition().toString() + " rayon " + df.format(this.getLargeur() / 2)
-                + " périmètre : " + df.format(this.perimetre()) + " aire : " + df.format(this.aire());
+                + " périmètre : " + df.format(this.perimetre()) + " aire : " + df.format(this.aire()) + " couleur = "
+                + rgb;
     }
 
     @Override

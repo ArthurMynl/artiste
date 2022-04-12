@@ -83,7 +83,7 @@ public class CercleTest {
     @Test
     void testToString() {
         Cercle cercle = new Cercle(new Coordonnees(10, 10), 50.5);
-        assertEquals("[Cercle] : pos (10,0 , 10,0) rayon 25,25 périmètre : 158,65 aire : 2002,96", cercle.toString());
+        assertEquals("[Cercle] : pos (10,0 , 10,0) rayon 25,25 périmètre : 158,65 aire : 2002,96 couleur = R0,V0,B0", cercle.toString());
     }
 
     @Test
