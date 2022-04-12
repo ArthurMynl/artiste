@@ -13,7 +13,6 @@ public class ActionSelectionner extends AbstractAction {
     private PanneauDessin panneauDessin;
     public static final String NOM_ACTION = "Selectionner";
 
-
     public ActionSelectionner(PanneauDessin panneauDessin) {
         this.panneauDessin = panneauDessin;
     }
@@ -22,5 +21,5 @@ public class ActionSelectionner extends AbstractAction {
     public void actionPerformed(ActionEvent event) {
         OutilSelectionner outil = new OutilSelectionner();
         panneauDessin.associerOutil(outil);
-    }    
+    }
 }

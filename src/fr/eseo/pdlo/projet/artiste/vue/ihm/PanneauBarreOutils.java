@@ -17,7 +17,7 @@ public class PanneauBarreOutils extends JPanel {
     public PanneauBarreOutils(PanneauDessin panneauDessin) {
         super();
         this.panneauDessin = panneauDessin;
-        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
         initComponents();
     }
 

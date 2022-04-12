@@ -5,6 +5,7 @@ import fr.eseo.pdlo.projet.artiste.modele.Coordonnees;
 public abstract class Forme {
     public static final double LARGEUR_PAR_DEFAUT = 150;
     public static final double HAUTEUR_PAR_DEFAUT = 190;
+    public static final java.awt.Color COULEUR_PAR_DEFAUT;
     private double largeur;
     private double hauteur;
     private Coordonnees position;

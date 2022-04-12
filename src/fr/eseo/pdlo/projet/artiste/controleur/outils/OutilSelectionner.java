@@ -13,7 +13,7 @@ public class OutilSelectionner extends Outil {
     Forme formeSelectionnee;
 
     @Override
-    public void mouseClicked(MouseEvent event)  {
+    public void mouseClicked(MouseEvent event) {
         for (int i = getPanneauDessin().getVueFormes().size() - 1; i >= 0; i--) {
             if (getPanneauDessin().getVueFormes().get(i).getForme()
                     .contient(new Coordonnees(event.getX(), event.getY()))) {
@@ -21,6 +21,7 @@ public class OutilSelectionner extends Outil {
                 break;
             }
         }
-        JOptionPane.showMessageDialog(getPanneauDessin(), formeSelectionnee.toString(), ActionSelectionner.NOM_ACTION, JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(getPanneauDessin(), formeSelectionnee.toString(), ActionSelectionner.NOM_ACTION,
+                JOptionPane.INFORMATION_MESSAGE);
     }
-}  
+}
