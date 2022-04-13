@@ -15,7 +15,6 @@ public abstract class OutilForme extends Outil {
             setFin(new Coordonnees(event.getX() + Forme.LARGEUR_PAR_DEFAUT, event.getY() + Forme.HAUTEUR_PAR_DEFAUT));
             this.getPanneauDessin().ajouterVueForme(this.creerVueForme());
             this.getPanneauDessin().repaint();
-            System.out.println(getPanneauDessin().getVueFormes().size());
         }
     }
 
@@ -25,7 +24,6 @@ public abstract class OutilForme extends Outil {
         if (!this.getDebut().equals(this.getFin())) {
             this.getPanneauDessin().ajouterVueForme(this.creerVueForme());
             this.getPanneauDessin().repaint();
-            System.out.println(getPanneauDessin().getVueFormes().size());
         }
     }
 

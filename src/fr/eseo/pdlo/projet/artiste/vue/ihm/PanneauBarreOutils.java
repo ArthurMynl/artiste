@@ -17,7 +17,7 @@ public class PanneauBarreOutils extends JPanel {
     public PanneauBarreOutils(PanneauDessin panneauDessin) {
         super();
         this.panneauDessin = panneauDessin;
-        setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         initComponents();
     }
 
@@ -42,12 +42,14 @@ public class PanneauBarreOutils extends JPanel {
         buttonGroup.add(boutonLigne);
         buttonGroup.add(boutonEllipse);
         buttonGroup.add(boutonCercle);
+        buttonGroup.add(boutonEfface);
+        buttonGroup.add(boutonSelectionner);
 
-        panneauDessin.add(boutonLigne);
-        panneauDessin.add(boutonEllipse);
-        panneauDessin.add(boutonCercle);
-        panneauDessin.add(boutonEfface);
-        panneauDessin.add(boutonSelectionner);
+        this.add(boutonLigne);
+        this.add(boutonEllipse);
+        this.add(boutonCercle);
+        this.add(boutonEfface);
+        this.add(boutonSelectionner);
     }
 
 }

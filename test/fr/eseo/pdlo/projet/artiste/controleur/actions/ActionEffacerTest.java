@@ -31,7 +31,7 @@ public class ActionEffacerTest {
 
         root.add(panneauBarreEtat, BorderLayout.SOUTH);
         root.add(panneauBarreOutil, BorderLayout.EAST);
-        root.add(panneauDessin);
+        root.add(panneauDessin, BorderLayout.CENTER);
 
         root.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         root.setLocationRelativeTo(null);

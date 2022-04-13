@@ -8,6 +8,7 @@ import java.util.List;
 import javax.swing.JPanel;
 
 import fr.eseo.pdlo.projet.artiste.controleur.outils.Outil;
+import fr.eseo.pdlo.projet.artiste.modele.formes.Forme;
 import fr.eseo.pdlo.projet.artiste.vue.formes.VueForme;
 
 public class PanneauDessin extends JPanel {
@@ -16,20 +17,23 @@ public class PanneauDessin extends JPanel {
     public static final Color COULEUR_FOND_PAR_DEFAUT = new Color(255, 255, 255);
 
     private final List<VueForme> vueFormes = new ArrayList<VueForme>();
-    
+
     private Outil outilCourant;
+    private Color couleurCourante;
 
     public PanneauDessin() {
         this.setPreferredSize(new Dimension(LARGEUR_PAR_DEFAUT, HAUTEUR_PAR_DEFAUT));
         this.setBackground(COULEUR_FOND_PAR_DEFAUT);
+        this.setCouleurCourante(Forme.COULEUR_PAR_DEFAUT);
     }
 
     public PanneauDessin(int largeur, int hauteur, Color couleur) {
         this.setPreferredSize(new Dimension(largeur, hauteur));
         this.setBackground(couleur);
+        this.setCouleurCourante(Forme.COULEUR_PAR_DEFAUT);
     }
 
-    public List<VueForme> getVueFormes() { 
+    public List<VueForme> getVueFormes() {
         return vueFormes;
     }
 
@@ -46,7 +50,7 @@ public class PanneauDessin extends JPanel {
         }
         g2D.dispose();
     }
-    
+
     public void associerOutil(Outil outil) {
         if (getOutilCourant() != null) {
             this.dissocierOutil();
@@ -67,6 +71,14 @@ public class PanneauDessin extends JPanel {
 
     private void setOutilCourant(Outil outil) {
         outilCourant = outil;
+    }
+
+    public java.awt.Color getCouleurCourante() {
+        return couleurCourante;
+    }
+
+    public void setCouleurCourante(java.awt.Color couleur) {
+        couleurCourante = couleur;
     }
 
 }

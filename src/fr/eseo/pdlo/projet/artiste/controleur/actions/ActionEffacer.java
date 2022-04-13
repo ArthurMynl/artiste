@@ -20,7 +20,7 @@ public class ActionEffacer extends AbstractAction {
     @Override
     public void actionPerformed(ActionEvent event) {
         if (JOptionPane.showConfirmDialog(panneauDessin, "Voulez-vous tout effacer ?", NOM_ACTION,
-                JOptionPane.OK_CANCEL_OPTION) == JOptionPane.YES_OPTION) {
+                JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
             panneauDessin.getVueFormes().clear();
             panneauDessin.repaint();
         }
