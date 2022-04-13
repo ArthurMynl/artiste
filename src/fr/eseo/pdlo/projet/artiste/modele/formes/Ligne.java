@@ -66,7 +66,6 @@ public class Ligne extends Forme {
                     + getCouleur().getBlue();
         }
         else {
-            System.out.println("Locale.getDefault() = " + Locale.getDefault());
             rgb = "R" + getCouleur().getRed() + ",G" + getCouleur().getGreen() + ",B"
                     + getCouleur().getBlue();
         }

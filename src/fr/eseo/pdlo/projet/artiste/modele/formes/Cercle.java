@@ -1,11 +1,10 @@
 package fr.eseo.pdlo.projet.artiste.modele.formes;
 
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 
 import fr.eseo.pdlo.projet.artiste.modele.Coordonnees;
-import fr.eseo.pdlo.projet.artiste.modele.Remplissable;
-import fr.eseo.pdlo.projet.artiste.modele.Remplissage;
 
 public class Cercle extends Ellipse {
 
@@ -15,6 +14,9 @@ public class Cercle extends Ellipse {
 
     public Cercle(double largeur) {
         super(largeur, largeur);
+        if (largeur < 0) {
+            throw new IllegalArgumentException("La largeur doit être positive.");
+        }
     }
 
     public Cercle(Coordonnees position) {
@@ -23,6 +25,9 @@ public class Cercle extends Ellipse {
 
     public Cercle(Coordonnees position, double largeur) {
         super(position, largeur, largeur);
+        if (largeur < 0) {
+            throw new IllegalArgumentException("La largeur doit être positive.");
+        }
     }
 
     public void setLargeur(double largeur) {
@@ -43,11 +48,21 @@ public class Cercle extends Ellipse {
 
     @Override
     public String toString() {
-        DecimalFormat df = new DecimalFormat();
-        df.setMaximumFractionDigits(2);
-        df.setMinimumFractionDigits(1);
-        df.setGroupingUsed(false);
+        String formatPattern = "0.0#";
+        Locale currentLocale = Locale.getDefault();
+        DecimalFormat formatDecimal = null;
+        DecimalFormatSymbols symbols = null;
         String rgb;
+
+        if (currentLocale.getLanguage().equals(new Locale("fr").getLanguage())) {
+            symbols = new DecimalFormatSymbols(Locale.FRANCE);
+        }
+        if (currentLocale.getLanguage().equals(new Locale("en").getLanguage())) {
+            symbols = new DecimalFormatSymbols(Locale.ENGLISH);
+        }
+
+        formatDecimal = new DecimalFormat(formatPattern, symbols);
+
         if (Locale.getDefault().getLanguage().equals("fr")) {
             rgb = "R" + getCouleur().getRed() + ",V" + getCouleur().getGreen() + ",B"
                     + getCouleur().getBlue();
@@ -56,9 +71,12 @@ public class Cercle extends Ellipse {
             rgb = "R" + getCouleur().getRed() + ",G" + getCouleur().getGreen() + ",B"
                     + getCouleur().getBlue();
         }
-        return "[Cercle " + getRemplissage().getMode() + "] : pos " + this.getPosition().toString() + " rayon "
-                + df.format(this.getLargeur() / 2) + " périmètre : " + df.format(this.perimetre()) + " aire : "
-                + df.format(this.aire()) + " couleur = " + rgb;
+
+        return "[Cercle] : pos (" + formatDecimal.format(this.getPosition().getAbscisse()) + " , "
+                + formatDecimal.format(this.getPosition().getOrdonnee()) + ") rayon "
+                + formatDecimal.format(this.getLargeur() / 2) + " périmètre : "
+                + formatDecimal.format(this.perimetre()) + " aire : " + formatDecimal.format(this.aire())
+                + " couleur = " + rgb;
     }
 
     @Override

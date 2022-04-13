@@ -17,8 +17,8 @@ public class EllipseTest {
         Ellipse ellipse = new Ellipse();
         assertEquals(0, ellipse.getPosition().getAbscisse());
         assertEquals(0, ellipse.getPosition().getOrdonnee());
-        assertEquals(150, ellipse.getLargeur());
-        assertEquals(190, ellipse.getHauteur());
+        assertEquals(190, ellipse.getLargeur());
+        assertEquals(150, ellipse.getHauteur());
     }
 
     @Test
@@ -26,8 +26,8 @@ public class EllipseTest {
         Ellipse ellipse = new Ellipse(new Coordonnees(10, 10));
         assertEquals(10, ellipse.getPosition().getAbscisse());
         assertEquals(10, ellipse.getPosition().getOrdonnee());
-        assertEquals(150, ellipse.getLargeur());
-        assertEquals(190, ellipse.getHauteur());
+        assertEquals(190, ellipse.getLargeur());
+        assertEquals(150, ellipse.getHauteur());
     }
 
     @Test
@@ -86,9 +86,9 @@ public class EllipseTest {
     void testToString() {
         Ellipse ellipse = new Ellipse(new Coordonnees(10, 10), 25, 15);
         Ellipse ellipse2 = new Ellipse(new Coordonnees(10, 10), 15, 25);
-        assertEquals("[Ellipse] : pos (10,0 , 10,0) petit rayon 7,5 grand rayon 12,5 périmètre : 63,82 aire : 294,52 couleur = R0,V0,B0",
+        assertEquals("[Ellipse aucune] : pos (10,0 , 10,0) petit rayon 7,5 grand rayon 12,5 périmètre : 63,82 aire : 294,52 couleur = R0,V0,B0",
                 ellipse.toString());
-        assertEquals("[Ellipse] : pos (10,0 , 10,0) petit rayon 7,5 grand rayon 12,5 périmètre : 63,82 aire : 294,52 couleur = R0,V0,B0",
+        assertEquals("[Ellipse aucune] : pos (10,0 , 10,0) petit rayon 7,5 grand rayon 12,5 périmètre : 63,82 aire : 294,52 couleur = R0,V0,B0",
                 ellipse2.toString());
     }
 

@@ -1,29 +1,44 @@
 package fr.eseo.pdlo.projet.artiste.modele.formes;
 
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 
 import fr.eseo.pdlo.projet.artiste.modele.Coordonnees;
-import fr.eseo.pdlo.projet.artiste.modele.Remplissable;
-import fr.eseo.pdlo.projet.artiste.modele.Remplissage;
+// import fr.eseo.pdlo.projet.artiste.modele.Remplissable;
+// import fr.eseo.pdlo.projet.artiste.modele.Remplissage;
 
-public class Ellipse extends Forme implements Remplissable {
-    private Remplissage remplissage;
+public class Ellipse extends Forme {
+    // private Remplissage remplissage;
 
     public Ellipse() {
         super();
+        // remplissage = Remplissage.AUCUNE;
     }
 
     public Ellipse(double largeur, double hauteur) {
         super(largeur, hauteur);
+        if (largeur < 0) {
+            throw new IllegalArgumentException("La largeur doit être positive.");
+        } else if (hauteur < 0) {
+            throw new IllegalArgumentException("La hauteur doit être positive.");
+        }
+        // remplissage = Remplissage.AUCUNE;
     }
 
     public Ellipse(Coordonnees position) {
         super(position);
+        // remplissage = Remplissage.AUCUNE;
     }
 
     public Ellipse(Coordonnees position, double largeur, double hauteur) {
         super(position, largeur, hauteur);
+        if (largeur < 0) {
+            throw new IllegalArgumentException("La largeur doit être positive.");
+        } else if (hauteur < 0) {
+            throw new IllegalArgumentException("La hauteur doit être positive.");
+        }
+        // remplissage = Remplissage.AUCUNE;
     }
 
     public void setLargeur(double largeur) {
@@ -42,13 +57,24 @@ public class Ellipse extends Forme implements Remplissable {
 
     @Override
     public String toString() {
-        DecimalFormat df = new DecimalFormat();
-        df.setMaximumFractionDigits(2);
-        df.setMinimumFractionDigits(1);
-        df.setGroupingUsed(false);
+        String formatPattern = "0.0#";
+        Locale currentLocale = Locale.getDefault();
+        DecimalFormat formatDecimal = null;
+        DecimalFormatSymbols symbols = null;
+        String rgb;
+
         double petitRayon = Math.min(this.getHauteur(), this.getLargeur()) / 2;
         double grandRayon = Math.max(this.getHauteur(), this.getLargeur()) / 2;
-        String rgb;
+
+        if (currentLocale.getLanguage().equals(new Locale("fr").getLanguage())) {
+            symbols = new DecimalFormatSymbols(Locale.FRANCE);
+        }
+        if (currentLocale.getLanguage().equals(new Locale("en").getLanguage())) {
+            symbols = new DecimalFormatSymbols(Locale.ENGLISH);
+        }
+
+        formatDecimal = new DecimalFormat(formatPattern, symbols);
+
         if (Locale.getDefault().getLanguage().equals("fr")) {
             rgb = "R" + getCouleur().getRed() + ",V" + getCouleur().getGreen() + ",B"
                     + getCouleur().getBlue();
@@ -58,9 +84,12 @@ public class Ellipse extends Forme implements Remplissable {
                     + getCouleur().getBlue();
         }
 
-        return "[Ellipse " + getRemplissage().getMode() + " ] : pos " + this.getPosition().toString() + " petit rayon "
-                + df.format(petitRayon) + " grand rayon " + df.format(grandRayon) + " périmètre : "
-                + df.format(this.perimetre()) + " aire : " + df.format(this.aire()) + " couleur = " + rgb;
+        return "[Ellipse] : pos (" + formatDecimal.format(this.getPosition().getAbscisse()) + " , "
+                + formatDecimal.format(this.getPosition().getOrdonnee()) + ") petit rayon "
+                + formatDecimal.format(petitRayon) + " grand rayon "
+                + formatDecimal.format(grandRayon) + " périmètre : "
+                + formatDecimal.format(this.perimetre()) + " aire : " + formatDecimal.format(this.aire())
+                + " couleur = " + rgb;
     }
 
     @Override
@@ -103,15 +132,16 @@ public class Ellipse extends Forme implements Remplissable {
         }
 
     }
-
-    @Override
-    public Remplissage getRemplissage() {
-        return remplissage;
-    }
-
-    @Override
-    public void setRemplissage(Remplissage remplissage) {
-        this.remplissage = remplissage;
-
-    }
+    /*
+     * @Override
+     * public Remplissage getRemplissage() {
+     * return remplissage;
+     * }
+     * 
+     * @Override
+     * public void setRemplissage(Remplissage remplissage) {
+     * this.remplissage = remplissage;
+     * 
+     * }
+     */
 }
