@@ -15,21 +15,31 @@ public class OutilCercle extends OutilForme {
 
     @Override
     protected VueForme creerVueForme() {
+        VueCercle ret;
+        Cercle cercle;
+
         double largeur = getFin().getAbscisse() - getDebut().getAbscisse();
         double hauteur = getFin().getOrdonnee() - getDebut().getOrdonnee();
         double taille = Math.max(Math.abs(largeur), Math.abs(hauteur));
 
         if (largeur < 0 && hauteur < 0) {
-            return new VueCercle(new Cercle(
-                    new Coordonnees(getDebut().getAbscisse() - taille, getDebut().getOrdonnee() - taille), taille));
+            cercle = new Cercle(new Coordonnees(getDebut().getAbscisse() - taille, getDebut().getOrdonnee() - taille),
+                    taille);
+            cercle.setCouleur(getPanneauDessin().getCouleurCourante());
+            ret = new VueCercle(cercle);
         } else if (largeur < 0) {
-            return new VueCercle(new Cercle(
-                    new Coordonnees(getDebut().getAbscisse() - taille, getDebut().getOrdonnee()), taille));
+            cercle = new Cercle(new Coordonnees(getDebut().getAbscisse() - taille, getDebut().getOrdonnee()), taille);
+            cercle.setCouleur(getPanneauDessin().getCouleurCourante());
+            ret = new VueCercle(cercle);
         } else if (hauteur < 0) {
-            return new VueCercle(new Cercle(
-                    new Coordonnees(getDebut().getAbscisse(), getDebut().getOrdonnee() - taille), taille));
+            cercle = new Cercle(new Coordonnees(getDebut().getAbscisse(), getDebut().getOrdonnee() - taille), taille);
+            cercle.setCouleur(getPanneauDessin().getCouleurCourante());
+            ret = new VueCercle(cercle);
         } else {
-            return new VueCercle(new Cercle(getDebut(), taille));
+            cercle = new Cercle(getDebut(), taille);
+            cercle.setCouleur(getPanneauDessin().getCouleurCourante());
+            ret = new VueCercle(cercle);
         }
+        return ret;
     }
 }

@@ -5,15 +5,15 @@ import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 
 import fr.eseo.pdlo.projet.artiste.modele.Coordonnees;
-// import fr.eseo.pdlo.projet.artiste.modele.Remplissable;
-// import fr.eseo.pdlo.projet.artiste.modele.Remplissage;
+import fr.eseo.pdlo.projet.artiste.modele.Remplissable;
+import fr.eseo.pdlo.projet.artiste.modele.Remplissage;
 
-public class Ellipse extends Forme {
-    // private Remplissage remplissage;
+public class Ellipse extends Forme implements Remplissable {
+    private Remplissage remplissage;
 
     public Ellipse() {
         super();
-        // remplissage = Remplissage.AUCUNE;
+        remplissage = Remplissage.AUCUNE;
     }
 
     public Ellipse(double largeur, double hauteur) {
@@ -23,12 +23,12 @@ public class Ellipse extends Forme {
         } else if (hauteur < 0) {
             throw new IllegalArgumentException("La hauteur doit être positive.");
         }
-        // remplissage = Remplissage.AUCUNE;
+        remplissage = Remplissage.AUCUNE;
     }
 
     public Ellipse(Coordonnees position) {
         super(position);
-        // remplissage = Remplissage.AUCUNE;
+        remplissage = Remplissage.AUCUNE;
     }
 
     public Ellipse(Coordonnees position, double largeur, double hauteur) {
@@ -38,7 +38,7 @@ public class Ellipse extends Forme {
         } else if (hauteur < 0) {
             throw new IllegalArgumentException("La hauteur doit être positive.");
         }
-        // remplissage = Remplissage.AUCUNE;
+        remplissage = Remplissage.AUCUNE;
     }
 
     public void setLargeur(double largeur) {
@@ -84,7 +84,7 @@ public class Ellipse extends Forme {
                     + getCouleur().getBlue();
         }
 
-        return "[Ellipse] : pos (" + formatDecimal.format(this.getPosition().getAbscisse()) + " , "
+        return "[Ellipse " + getRemplissage().getMode() + "] : pos (" + formatDecimal.format(this.getPosition().getAbscisse()) + " , "
                 + formatDecimal.format(this.getPosition().getOrdonnee()) + ") petit rayon "
                 + formatDecimal.format(petitRayon) + " grand rayon "
                 + formatDecimal.format(grandRayon) + " périmètre : "
@@ -132,16 +132,13 @@ public class Ellipse extends Forme {
         }
 
     }
-    /*
-     * @Override
-     * public Remplissage getRemplissage() {
-     * return remplissage;
-     * }
-     * 
-     * @Override
-     * public void setRemplissage(Remplissage remplissage) {
-     * this.remplissage = remplissage;
-     * 
-     * }
-     */
+    @Override
+    public Remplissage getRemplissage() {
+        return remplissage;
+    }
+    
+    @Override
+    public void setRemplissage(Remplissage remplissage) {
+        this.remplissage = remplissage;
+    }
 }

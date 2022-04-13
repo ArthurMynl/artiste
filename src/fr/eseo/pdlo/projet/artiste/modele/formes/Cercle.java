@@ -72,7 +72,8 @@ public class Cercle extends Ellipse {
                     + getCouleur().getBlue();
         }
 
-        return "[Cercle] : pos (" + formatDecimal.format(this.getPosition().getAbscisse()) + " , "
+        return "[Cercle " + getRemplissage().getMode() + "] : pos ("
+                + formatDecimal.format(this.getPosition().getAbscisse()) + " , "
                 + formatDecimal.format(this.getPosition().getOrdonnee()) + ") rayon "
                 + formatDecimal.format(this.getLargeur() / 2) + " périmètre : "
                 + formatDecimal.format(this.perimetre()) + " aire : " + formatDecimal.format(this.aire())
