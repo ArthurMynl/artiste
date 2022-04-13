@@ -10,6 +10,15 @@ public abstract class Outil implements javax.swing.event.MouseInputListener {
     private Coordonnees debut;
     private Coordonnees fin;
     private PanneauDessin panneauDessin;
+
+    public Outil(PanneauDessin panneauDessin) {
+        this.setPanneauDessin(panneauDessin);
+    }
+
+    public Outil() {
+        this.debut = new Coordonnees();
+        this.fin = new Coordonnees();
+    }
     
     public void setPanneauDessin(PanneauDessin panneau) {
         panneauDessin = panneau;

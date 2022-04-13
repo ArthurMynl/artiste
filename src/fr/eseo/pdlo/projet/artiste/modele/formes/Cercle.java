@@ -4,8 +4,11 @@ import java.text.DecimalFormat;
 import java.util.Locale;
 
 import fr.eseo.pdlo.projet.artiste.modele.Coordonnees;
+import fr.eseo.pdlo.projet.artiste.modele.Remplissable;
+import fr.eseo.pdlo.projet.artiste.modele.Remplissage;
 
 public class Cercle extends Ellipse {
+
     public Cercle() {
         super(Forme.LARGEUR_PAR_DEFAUT, Forme.LARGEUR_PAR_DEFAUT);
     }
@@ -53,9 +56,9 @@ public class Cercle extends Ellipse {
             rgb = "R" + getCouleur().getRed() + ",G" + getCouleur().getGreen() + ",B"
                     + getCouleur().getBlue();
         }
-        return "[Cercle] : pos " + this.getPosition().toString() + " rayon " + df.format(this.getLargeur() / 2)
-                + " périmètre : " + df.format(this.perimetre()) + " aire : " + df.format(this.aire()) + " couleur = "
-                + rgb;
+        return "[Cercle " + getRemplissage().getMode() + "] : pos " + this.getPosition().toString() + " rayon "
+                + df.format(this.getLargeur() / 2) + " périmètre : " + df.format(this.perimetre()) + " aire : "
+                + df.format(this.aire()) + " couleur = " + rgb;
     }
 
     @Override

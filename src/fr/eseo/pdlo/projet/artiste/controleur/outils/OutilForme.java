@@ -6,7 +6,11 @@ import fr.eseo.pdlo.projet.artiste.modele.Coordonnees;
 import fr.eseo.pdlo.projet.artiste.modele.formes.Forme;
 import fr.eseo.pdlo.projet.artiste.vue.formes.VueForme;
 
+
+
+
 public abstract class OutilForme extends Outil {
+
 
     @Override
     public void mouseClicked(MouseEvent event) {

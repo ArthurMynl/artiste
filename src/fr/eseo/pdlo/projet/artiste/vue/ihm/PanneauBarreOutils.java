@@ -6,6 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 
+import fr.eseo.pdlo.projet.artiste.controleur.actions.ActionChoisirCouleur;
 import fr.eseo.pdlo.projet.artiste.controleur.actions.ActionChoisirForme;
 import fr.eseo.pdlo.projet.artiste.controleur.actions.ActionEffacer;
 import fr.eseo.pdlo.projet.artiste.controleur.actions.ActionSelectionner;
@@ -24,25 +25,28 @@ public class PanneauBarreOutils extends JPanel {
     private void initComponents() {
         ButtonGroup buttonGroup = new ButtonGroup();
         JToggleButton boutonLigne = new JToggleButton(
-                new ActionChoisirForme(panneauDessin, this, ActionChoisirForme.ACTION_LIGNE));
+                new ActionChoisirForme(panneauDessin, this, ActionChoisirForme.NOM_ACTION_LIGNE));
         JToggleButton boutonEllipse = new JToggleButton(
-                new ActionChoisirForme(panneauDessin, this, ActionChoisirForme.ACTION_ELLIPSE));
+                new ActionChoisirForme(panneauDessin, this, ActionChoisirForme.NOM_ACTION_ELLIPSE));
         JToggleButton boutonCercle = new JToggleButton(
-                new ActionChoisirForme(panneauDessin, this, ActionChoisirForme.ACTION_CERCLE));
+                new ActionChoisirForme(panneauDessin, this, ActionChoisirForme.NOM_ACTION_CERCLE));
         JToggleButton boutonSelectionner = new JToggleButton(new ActionSelectionner(panneauDessin));
         JButton boutonEfface = new JButton(new ActionEffacer(panneauDessin));
+        JButton boutonCouleur = new JButton(new ActionChoisirCouleur(panneauDessin));
 
 
-        boutonLigne.setText(ActionChoisirForme.ACTION_LIGNE);
-        boutonEllipse.setText(ActionChoisirForme.ACTION_ELLIPSE);
-        boutonCercle.setText(ActionChoisirForme.ACTION_CERCLE);
-        boutonEfface.setText(ActionEffacer.NOM_ACTION);
+        boutonLigne.setName(ActionChoisirForme.NOM_ACTION_LIGNE);
+        boutonEllipse.setName(ActionChoisirForme.NOM_ACTION_ELLIPSE);
+        boutonCercle.setName(ActionChoisirForme.NOM_ACTION_CERCLE);
+        boutonEfface.setName(ActionEffacer.NOM_ACTION);
+        boutonCouleur.setName(ActionChoisirCouleur.NOM_ACTION);
+
+        boutonSelectionner.setName(ActionSelectionner.NOM_ACTION);
         boutonSelectionner.setText(ActionSelectionner.NOM_ACTION);
-
+        
         buttonGroup.add(boutonLigne);
         buttonGroup.add(boutonEllipse);
         buttonGroup.add(boutonCercle);
-        buttonGroup.add(boutonEfface);
         buttonGroup.add(boutonSelectionner);
 
         this.add(boutonLigne);
@@ -50,6 +54,7 @@ public class PanneauBarreOutils extends JPanel {
         this.add(boutonCercle);
         this.add(boutonEfface);
         this.add(boutonSelectionner);
+        this.add(boutonCouleur);
     }
 
 }

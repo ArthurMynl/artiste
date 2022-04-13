@@ -12,6 +12,10 @@ public class OutilSelectionner extends Outil {
 
     Forme formeSelectionnee;
 
+    public OutilSelectionner() {
+        super();
+    }
+
     @Override
     public void mouseClicked(MouseEvent event) {
         for (int i = getPanneauDessin().getVueFormes().size() - 1; i >= 0; i--) {

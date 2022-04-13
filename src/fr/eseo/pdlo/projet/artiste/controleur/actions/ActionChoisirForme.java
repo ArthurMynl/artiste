@@ -11,9 +11,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 
 public class ActionChoisirForme extends AbstractAction {
-    public static final String ACTION_ELLIPSE = "Ellipse";
-    public static final String ACTION_LIGNE = "Ligne";
-    public static final String ACTION_CERCLE = "Cercle";
+    public static final String NOM_ACTION_ELLIPSE = "Ellipse";
+    public static final String NOM_ACTION_LIGNE = "Ligne";
+    public static final String NOM_ACTION_CERCLE = "Cercle";
 
     private PanneauDessin panneauDessin;
 
@@ -23,13 +23,13 @@ public class ActionChoisirForme extends AbstractAction {
     }
 
     public void actionPerformed(ActionEvent event) {
-        if (event.getActionCommand() == ACTION_ELLIPSE) {
+        if (event.getActionCommand() == NOM_ACTION_ELLIPSE) {
             panneauDessin.associerOutil(new OutilEllipse());
         } 
-        else if (event.getActionCommand() == ACTION_LIGNE) {
+        else if (event.getActionCommand() == NOM_ACTION_LIGNE) {
             panneauDessin.associerOutil(new OutilLigne());
         } 
-        else if (event.getActionCommand() == ACTION_CERCLE) {
+        else if (event.getActionCommand() == NOM_ACTION_CERCLE) {
             panneauDessin.associerOutil(new OutilCercle());
         }
     }

@@ -5,7 +5,6 @@ import javax.swing.JPanel;
 
 import java.awt.event.MouseEvent;
 
-
 import fr.eseo.pdlo.projet.artiste.modele.Coordonnees;
 
 public class PanneauBarreEtat extends JPanel implements java.awt.event.MouseMotionListener {

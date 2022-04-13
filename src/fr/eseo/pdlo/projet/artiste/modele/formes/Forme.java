@@ -4,8 +4,8 @@ import fr.eseo.pdlo.projet.artiste.modele.Coloriable;
 import fr.eseo.pdlo.projet.artiste.modele.Coordonnees;
 
 public abstract class Forme implements Coloriable {
-    public static final double LARGEUR_PAR_DEFAUT = 150;
-    public static final double HAUTEUR_PAR_DEFAUT = 190;
+    public static final double LARGEUR_PAR_DEFAUT = 190;
+    public static final double HAUTEUR_PAR_DEFAUT = 150;
     public static final java.awt.Color COULEUR_PAR_DEFAUT = javax.swing.UIManager.getColor("Panel.foreground");
     private double largeur;
     private double hauteur;

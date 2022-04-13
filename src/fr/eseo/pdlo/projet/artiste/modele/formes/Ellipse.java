@@ -4,8 +4,12 @@ import java.text.DecimalFormat;
 import java.util.Locale;
 
 import fr.eseo.pdlo.projet.artiste.modele.Coordonnees;
+import fr.eseo.pdlo.projet.artiste.modele.Remplissable;
+import fr.eseo.pdlo.projet.artiste.modele.Remplissage;
 
-public class Ellipse extends Forme {
+public class Ellipse extends Forme implements Remplissable {
+    private Remplissage remplissage;
+
     public Ellipse() {
         super();
     }
@@ -54,9 +58,8 @@ public class Ellipse extends Forme {
                     + getCouleur().getBlue();
         }
 
-        return "[Ellipse] : pos " + this.getPosition().toString() + " petit rayon "
-                + df.format(petitRayon)
-                + " grand rayon " + df.format(grandRayon) + " périmètre : "
+        return "[Ellipse " + getRemplissage().getMode() + " ] : pos " + this.getPosition().toString() + " petit rayon "
+                + df.format(petitRayon) + " grand rayon " + df.format(grandRayon) + " périmètre : "
                 + df.format(this.perimetre()) + " aire : " + df.format(this.aire()) + " couleur = " + rgb;
     }
 
@@ -98,6 +101,17 @@ public class Ellipse extends Forme {
             double eq2 = Math.pow(coordonnees.getOrdonnee() - centre.getOrdonnee(), 2) / Math.pow(grandRayon, 2);
             return eq1 + eq2 <= 1;
         }
+
+    }
+
+    @Override
+    public Remplissage getRemplissage() {
+        return remplissage;
+    }
+
+    @Override
+    public void setRemplissage(Remplissage remplissage) {
+        this.remplissage = remplissage;
 
     }
 }
