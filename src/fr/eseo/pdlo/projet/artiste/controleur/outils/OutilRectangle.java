@@ -17,22 +17,26 @@ public class OutilRectangle extends OutilForme{
             rectangle = new Rectangle(getFin(), -largeur, -hauteur);
             rectangle.setCouleur(getPanneauDessin().getCouleurCourante());
             rectangle.setRemplissage(getPanneauDessin().getModeRemplissageCourant());
+            rectangle.setAliasing(getPanneauDessin().getAliasing());
             ret = new VueRectangle(rectangle);
         } else if (largeur < 0) {
             rectangle = new Rectangle(new Coordonnees(getDebut().getAbscisse() + largeur, getDebut().getOrdonnee()), -largeur, hauteur);
             rectangle.setCouleur(getPanneauDessin().getCouleurCourante());
             rectangle.setRemplissage(getPanneauDessin().getModeRemplissageCourant());
+            rectangle.setAliasing(getPanneauDessin().getAliasing());
             ret = new VueRectangle(rectangle);
         } else if (hauteur < 0) {
             rectangle = new Rectangle(new Coordonnees(getDebut().getAbscisse(), getDebut().getOrdonnee() + hauteur),
                     largeur, -hauteur);
             rectangle.setCouleur(getPanneauDessin().getCouleurCourante());
             rectangle.setRemplissage(getPanneauDessin().getModeRemplissageCourant());
+            rectangle.setAliasing(getPanneauDessin().getAliasing());
             ret = new VueRectangle(rectangle);
         } else { 
             rectangle = new Rectangle(getDebut(), largeur, hauteur);
             rectangle.setCouleur(getPanneauDessin().getCouleurCourante());
             rectangle.setRemplissage(getPanneauDessin().getModeRemplissageCourant());
+            rectangle.setAliasing(getPanneauDessin().getAliasing());
             ret = new VueRectangle(rectangle);
         }
         return ret;

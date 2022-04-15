@@ -22,12 +22,14 @@ public class PanneauDessin extends JPanel {
     private Outil outilCourant;
     private Color couleurCourante;
     private Remplissage modeRemplissageCourant;
+    private boolean aliasing;
 
     public PanneauDessin() {
         this.setPreferredSize(new Dimension(LARGEUR_PAR_DEFAUT, HAUTEUR_PAR_DEFAUT));
         this.setBackground(COULEUR_FOND_PAR_DEFAUT);
         this.setCouleurCourante(Forme.COULEUR_PAR_DEFAUT);
         this.setModeRemplissageCourant(Remplissage.AUCUNE);
+        this.setAliasing(false);
     }
 
     public PanneauDessin(int largeur, int hauteur, Color couleur) {
@@ -35,6 +37,7 @@ public class PanneauDessin extends JPanel {
         this.setBackground(couleur);
         this.setCouleurCourante(Forme.COULEUR_PAR_DEFAUT);
         this.setModeRemplissageCourant(Remplissage.AUCUNE);
+        this.setAliasing(false);
     }
 
     public List<VueForme> getVueFormes() {
@@ -63,7 +66,7 @@ public class PanneauDessin extends JPanel {
         setOutilCourant(outil);
         this.addMouseListener(outil);
     }
-
+    
     public void dissocierOutil() {
         this.removeMouseListener(this.getOutilCourant());
         setOutilCourant(null);
@@ -93,4 +96,11 @@ public class PanneauDessin extends JPanel {
         this.modeRemplissageCourant = remplissage;
     }
 
+    public void setAliasing(boolean aliasing) {
+        this.aliasing = aliasing;
+    }
+
+    public boolean getAliasing() {
+        return aliasing;
+    }
 }

@@ -3,6 +3,7 @@ package fr.eseo.pdlo.projet.artiste.vue.formes;
 import java.awt.Color;
 
 import fr.eseo.pdlo.projet.artiste.modele.formes.Ligne;
+import java.awt.RenderingHints;
 
 public class VueLigne extends VueForme {
     public VueLigne(Ligne ligne) {
@@ -13,6 +14,12 @@ public class VueLigne extends VueForme {
     public void affiche(java.awt.Graphics2D g2d) {
         Color contextColor = g2d.getColor();
         g2d.setColor(getForme().getCouleur());
+        if (getForme().getAliasing()) {
+            g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        }
+        else {
+            g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
+        }
         g2d.drawLine((int) Math.round(this.forme.getPosition().getAbscisse()),
                 (int) Math.round(this.forme.getPosition().getOrdonnee()),
                 (int) Math.round(this.forme.getPosition().getAbscisse() + this.forme.getLargeur()),

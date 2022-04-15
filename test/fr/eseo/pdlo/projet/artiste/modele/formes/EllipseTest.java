@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
 
 import fr.eseo.pdlo.projet.artiste.modele.Coordonnees;
 
+import java.awt.Color;
+
 public class EllipseTest {
 
     EllipseTest() {
@@ -110,5 +112,18 @@ public class EllipseTest {
         assertEquals(true, ellipse2.contient(new Coordonnees(15, 15)));
         assertEquals(true, ellipse2.contient(new Coordonnees(15, 25)));
         assertEquals(false, ellipse2.contient(new Coordonnees(25, 15)));
+    }
+
+    @Test
+    void testSetCouleur() {
+        Ellipse ellipse = new Ellipse();
+        ellipse.setCouleur(new Color(255, 0, 0));
+        assertEquals(new Color(255, 0, 0), ellipse.getCouleur());
+    }
+
+    @Test
+    void testGetCouleur() {
+        Ellipse ellipse = new Ellipse();
+        assertEquals(Color.BLACK, ellipse.getCouleur());
     }
 }

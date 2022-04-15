@@ -1,10 +1,11 @@
 package fr.eseo.pdlo.projet.artiste.modele.formes;
 
+import fr.eseo.pdlo.projet.artiste.modele.Aliasing;
 import fr.eseo.pdlo.projet.artiste.modele.Coloriable;
 import fr.eseo.pdlo.projet.artiste.modele.Coordonnees;
 import java.awt.Color;
 
-public abstract class Forme implements Coloriable {
+public abstract class Forme implements Coloriable, Aliasing {
     public static final double LARGEUR_PAR_DEFAUT = 190;
     public static final double HAUTEUR_PAR_DEFAUT = 150;
     public static final Color COULEUR_PAR_DEFAUT = javax.swing.UIManager.getColor("Panel.foreground");
@@ -12,6 +13,7 @@ public abstract class Forme implements Coloriable {
     private double hauteur;
     private Coordonnees position;
     private Color couleur;
+    private boolean aliasing;
 
     public Forme() {
         this.largeur = LARGEUR_PAR_DEFAUT;
@@ -111,6 +113,14 @@ public abstract class Forme implements Coloriable {
 
     public void setCouleur(java.awt.Color couleur) {
         this.couleur = couleur;
+    }
+
+    public boolean getAliasing() {
+        return aliasing;
+    }
+
+    public void setAliasing(boolean aliasing) {
+        this.aliasing = aliasing;
     }
     
     public abstract double aire();

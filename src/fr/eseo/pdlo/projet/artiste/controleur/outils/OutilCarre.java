@@ -9,33 +9,37 @@ public class OutilCarre extends OutilForme {
     @Override
     protected VueForme creerVueForme() {
         VueCarre ret;
-        Carre cercle;
+        Carre carre;
 
         double largeur = getFin().getAbscisse() - getDebut().getAbscisse();
         double hauteur = getFin().getOrdonnee() - getDebut().getOrdonnee();
         double taille = Math.max(Math.abs(largeur), Math.abs(hauteur));
 
         if (largeur < 0 && hauteur < 0) {
-            cercle = new Carre(new Coordonnees(getDebut().getAbscisse() - taille, getDebut().getOrdonnee() - taille),
+            carre = new Carre(new Coordonnees(getDebut().getAbscisse() - taille, getDebut().getOrdonnee() - taille),
                     taille);
-            cercle.setCouleur(getPanneauDessin().getCouleurCourante());
-            cercle.setRemplissage(getPanneauDessin().getModeRemplissageCourant());
-            ret = new VueCarre(cercle);
+            carre.setCouleur(getPanneauDessin().getCouleurCourante());
+            carre.setRemplissage(getPanneauDessin().getModeRemplissageCourant());
+            carre.setAliasing(getPanneauDessin().getAliasing());
+            ret = new VueCarre(carre);
         } else if (largeur < 0) {
-            cercle = new Carre(new Coordonnees(getDebut().getAbscisse() - taille, getDebut().getOrdonnee()), taille);
-            cercle.setCouleur(getPanneauDessin().getCouleurCourante());
-            cercle.setRemplissage(getPanneauDessin().getModeRemplissageCourant());
-            ret = new VueCarre(cercle);
+            carre = new Carre(new Coordonnees(getDebut().getAbscisse() - taille, getDebut().getOrdonnee()), taille);
+            carre.setCouleur(getPanneauDessin().getCouleurCourante());
+            carre.setRemplissage(getPanneauDessin().getModeRemplissageCourant());
+            carre.setAliasing(getPanneauDessin().getAliasing());
+            ret = new VueCarre(carre);
         } else if (hauteur < 0) {
-            cercle = new Carre(new Coordonnees(getDebut().getAbscisse(), getDebut().getOrdonnee() - taille), taille);
-            cercle.setCouleur(getPanneauDessin().getCouleurCourante());
-            cercle.setRemplissage(getPanneauDessin().getModeRemplissageCourant());
-            ret = new VueCarre(cercle);
+            carre = new Carre(new Coordonnees(getDebut().getAbscisse(), getDebut().getOrdonnee() - taille), taille);
+            carre.setCouleur(getPanneauDessin().getCouleurCourante());
+            carre.setRemplissage(getPanneauDessin().getModeRemplissageCourant());
+            carre.setAliasing(getPanneauDessin().getAliasing());
+            ret = new VueCarre(carre);
         } else {
-            cercle = new Carre(getDebut(), taille);
-            cercle.setCouleur(getPanneauDessin().getCouleurCourante());
-            cercle.setRemplissage(getPanneauDessin().getModeRemplissageCourant());
-            ret = new VueCarre(cercle);
+            carre = new Carre(getDebut(), taille);
+            carre.setCouleur(getPanneauDessin().getCouleurCourante());
+            carre.setRemplissage(getPanneauDessin().getModeRemplissageCourant());
+            carre.setAliasing(getPanneauDessin().getAliasing());
+            ret = new VueCarre(carre);
         }
         return ret;
     }

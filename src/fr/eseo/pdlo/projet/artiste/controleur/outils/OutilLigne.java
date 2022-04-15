@@ -13,6 +13,7 @@ public class OutilLigne extends OutilForme {
         double hauteur = getFin().getOrdonnee() - getDebut().getOrdonnee();
         Ligne ligne = new Ligne(getDebut(), largeur, hauteur);
         ligne.setCouleur(getPanneauDessin().getCouleurCourante());
+        ligne.setAliasing(getPanneauDessin().getAliasing());
         return new VueLigne(ligne);
     }
 }

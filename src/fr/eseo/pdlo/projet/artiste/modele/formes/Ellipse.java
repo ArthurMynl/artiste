@@ -127,6 +127,7 @@ public class Ellipse extends Forme implements Remplissable {
         }
 
     }
+    
     @Override
     public Remplissage getRemplissage() {
         return remplissage;
