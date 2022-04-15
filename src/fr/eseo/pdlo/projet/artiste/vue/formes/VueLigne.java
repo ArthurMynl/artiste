@@ -11,12 +11,12 @@ public class VueLigne extends VueForme {
 
     @Override
     public void affiche(java.awt.Graphics2D g2d) {
-        Color context_color = g2d.getColor();
+        Color contextColor = g2d.getColor();
         g2d.setColor(getForme().getCouleur());
         g2d.drawLine((int) Math.round(this.forme.getPosition().getAbscisse()),
                 (int) Math.round(this.forme.getPosition().getOrdonnee()),
                 (int) Math.round(this.forme.getPosition().getAbscisse() + this.forme.getLargeur()),
                 (int) Math.round(this.forme.getPosition().getOrdonnee() + this.forme.getHauteur()));
-        g2d.setColor(context_color);
+        g2d.setColor(contextColor);
     }
 }

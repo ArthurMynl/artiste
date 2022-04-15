@@ -26,18 +26,22 @@ public class OutilCercle extends OutilForme {
             cercle = new Cercle(new Coordonnees(getDebut().getAbscisse() - taille, getDebut().getOrdonnee() - taille),
                     taille);
             cercle.setCouleur(getPanneauDessin().getCouleurCourante());
+            cercle.setRemplissage(getPanneauDessin().getModeRemplissageCourant());
             ret = new VueCercle(cercle);
         } else if (largeur < 0) {
             cercle = new Cercle(new Coordonnees(getDebut().getAbscisse() - taille, getDebut().getOrdonnee()), taille);
             cercle.setCouleur(getPanneauDessin().getCouleurCourante());
+            cercle.setRemplissage(getPanneauDessin().getModeRemplissageCourant());
             ret = new VueCercle(cercle);
         } else if (hauteur < 0) {
             cercle = new Cercle(new Coordonnees(getDebut().getAbscisse(), getDebut().getOrdonnee() - taille), taille);
             cercle.setCouleur(getPanneauDessin().getCouleurCourante());
+            cercle.setRemplissage(getPanneauDessin().getModeRemplissageCourant());
             ret = new VueCercle(cercle);
         } else {
             cercle = new Cercle(getDebut(), taille);
             cercle.setCouleur(getPanneauDessin().getCouleurCourante());
+            cercle.setRemplissage(getPanneauDessin().getModeRemplissageCourant());
             ret = new VueCercle(cercle);
         }
         return ret;
