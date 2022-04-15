@@ -3,6 +3,8 @@ package fr.eseo.pdlo.projet.artiste.modele.formes;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.util.Locale;
+
 import org.junit.jupiter.api.Test;
 
 import fr.eseo.pdlo.projet.artiste.modele.Coordonnees;
@@ -83,7 +85,12 @@ public class CercleTest {
     @Test
     void testToString() {
         Cercle cercle = new Cercle(new Coordonnees(10, 10), 50.5);
-        assertEquals("[Cercle] : pos (10,0 , 10,0) rayon 25,25 périmètre : 158,65 aire : 2002,96 couleur = R0,V0,B0", cercle.toString());
+        assertEquals("[Cercle aucune] : pos (10,0 , 10,0) rayon 25,25 périmètre : 158,65 aire : 2002,96 couleur = R0,V0,B0",
+                cercle.toString());
+        Locale locale = new Locale("en");
+        Locale.setDefault(locale);
+        assertEquals("[Cercle aucune] : pos (10.0 , 10.0) rayon 25.25 périmètre : 158.65 aire : 2002.96 couleur = R0,G0,B0",
+                cercle.toString());
     }
 
     @Test

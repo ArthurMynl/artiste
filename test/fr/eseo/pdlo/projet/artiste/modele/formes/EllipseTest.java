@@ -3,6 +3,8 @@ package fr.eseo.pdlo.projet.artiste.modele.formes;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.util.Locale;
+
 import org.junit.jupiter.api.Test;
 
 import fr.eseo.pdlo.projet.artiste.modele.Coordonnees;
@@ -86,9 +88,15 @@ public class EllipseTest {
     void testToString() {
         Ellipse ellipse = new Ellipse(new Coordonnees(10, 10), 25, 15);
         Ellipse ellipse2 = new Ellipse(new Coordonnees(10, 10), 15, 25);
-        assertEquals("[Ellipse aucune] : pos (10,0 , 10,0) petit rayon 7,5 grand rayon 12,5 périmètre : 63,82 aire : 294,52 couleur = R0,V0,B0",
+        assertEquals("[Ellipse aucune] : pos (10,0 , 10,0) petit rayon 7,5 grand rayon 12,5 périmètre : 63,82 aire : 294,52 couleur = R0,V0,B0",
                 ellipse.toString());
-        assertEquals("[Ellipse aucune] : pos (10,0 , 10,0) petit rayon 7,5 grand rayon 12,5 périmètre : 63,82 aire : 294,52 couleur = R0,V0,B0",
+        assertEquals("[Ellipse aucune] : pos (10,0 , 10,0) petit rayon 7,5 grand rayon 12,5 périmètre : 63,82 aire : 294,52 couleur = R0,V0,B0",
+                ellipse2.toString());
+        Locale locale = new Locale("en");
+        Locale.setDefault(locale);
+        assertEquals("[Ellipse aucune] : pos (10.0 , 10.0) petit rayon 7.5 grand rayon 12.5 périmètre : 63.82 aire : 294.52 couleur = R0,G0,B0",
+                ellipse.toString());
+        assertEquals("[Ellipse aucune] : pos (10.0 , 10.0) petit rayon 7.5 grand rayon 12.5 périmètre : 63.82 aire : 294.52 couleur = R0,G0,B0",
                 ellipse2.toString());
     }
 

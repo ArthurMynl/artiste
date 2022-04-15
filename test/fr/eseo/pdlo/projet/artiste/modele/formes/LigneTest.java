@@ -2,6 +2,8 @@ package fr.eseo.pdlo.projet.artiste.modele.formes;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.Locale;
+
 import org.junit.jupiter.api.Test;
 
 import fr.eseo.pdlo.projet.artiste.modele.Coordonnees;
@@ -105,8 +107,19 @@ public class LigneTest {
     void testToString() {
         Ligne ligne = new Ligne(new Coordonnees(10, 10), -5, 20);
         Ligne ligne2 = new Ligne(new Coordonnees(10, 10), 5, -20);
-        assertEquals("[Ligne] c1 : (10,0 , 10,0) c2 : (5,0 , 30,0) longueur : 20,62 angle : 104,04° couleur = R0,V0,B0", ligne.toString());
-        assertEquals("[Ligne] c1 : (10,0 , 10,0) c2 : (15,0 , -10,0) longueur : 20,62 angle : 284,04° couleur = R0,V0,B0", ligne2.toString());
+        assertEquals("[Ligne] c1 : (10,0 , 10,0) c2 : (5,0 , 30,0) longueur : 20,62 angle : 104,04° couleur = R0,V0,B0",
+                ligne.toString());
+        assertEquals(
+                "[Ligne] c1 : (10,0 , 10,0) c2 : (15,0 , -10,0) longueur : 20,62 angle : 284,04° couleur = R0,V0,B0",
+                ligne2.toString());
+        Locale locale = new Locale("en");
+        Locale.setDefault(locale);
+        assertEquals("[Ligne] c1 : (10.0 , 10.0) c2 : (5.0 , 30.0) longueur : 20.62 angle : 104.04° couleur = R0,G0,B0",
+                ligne.toString());
+        assertEquals(
+            "[Ligne] c1 : (10.0 , 10.0) c2 : (15.0 , -10.0) longueur : 20.62 angle : 284.04° couleur = R0,G0,B0",
+            ligne2.toString());
+        
     }
 
     @Test

@@ -57,7 +57,8 @@ public class Ligne extends Forme {
         df.setMaximumFractionDigits(2);
         df.setMinimumFractionDigits(1);
         double angle = getC1().angleVers(getC2()) * 180 / Math.PI;
-        String rgb;
+        String rgb = null;
+        
         if (angle < 0) {
             angle += 360;
         }
@@ -65,7 +66,7 @@ public class Ligne extends Forme {
             rgb = "R" + getCouleur().getRed() + ",V" + getCouleur().getGreen() + ",B"
                     + getCouleur().getBlue();
         }
-        else {
+        if (Locale.getDefault().getLanguage().equals("en")) {
             rgb = "R" + getCouleur().getRed() + ",G" + getCouleur().getGreen() + ",B"
                     + getCouleur().getBlue();
         }

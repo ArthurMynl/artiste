@@ -58,37 +58,32 @@ public class Ellipse extends Forme implements Remplissable {
     @Override
     public String toString() {
         String formatPattern = "0.0#";
-        Locale currentLocale = Locale.getDefault();
-        DecimalFormat formatDecimal = null;
+        Locale locale = Locale.getDefault();
+        DecimalFormat df = null;
         DecimalFormatSymbols symbols = null;
-        String rgb;
+        String rgb = null;
 
         double petitRayon = Math.min(this.getHauteur(), this.getLargeur()) / 2;
         double grandRayon = Math.max(this.getHauteur(), this.getLargeur()) / 2;
 
-        if (currentLocale.getLanguage().equals(new Locale("fr").getLanguage())) {
+        if (locale.getLanguage().equals(new Locale("fr").getLanguage())) {
             symbols = new DecimalFormatSymbols(Locale.FRANCE);
-        }
-        if (currentLocale.getLanguage().equals(new Locale("en").getLanguage())) {
-            symbols = new DecimalFormatSymbols(Locale.ENGLISH);
-        }
-
-        formatDecimal = new DecimalFormat(formatPattern, symbols);
-
-        if (Locale.getDefault().getLanguage().equals("fr")) {
             rgb = "R" + getCouleur().getRed() + ",V" + getCouleur().getGreen() + ",B"
                     + getCouleur().getBlue();
-        } else {
-            System.out.println("Locale.getDefault() = " + Locale.getDefault());
+        }
+        if (locale.getLanguage().equals(new Locale("en").getLanguage())) {
+            symbols = new DecimalFormatSymbols(Locale.ENGLISH);
             rgb = "R" + getCouleur().getRed() + ",G" + getCouleur().getGreen() + ",B"
                     + getCouleur().getBlue();
         }
 
-        return "[Ellipse " + getRemplissage().getMode() + "] : pos (" + formatDecimal.format(this.getPosition().getAbscisse()) + " , "
-                + formatDecimal.format(this.getPosition().getOrdonnee()) + ") petit rayon "
-                + formatDecimal.format(petitRayon) + " grand rayon "
-                + formatDecimal.format(grandRayon) + " périmètre : "
-                + formatDecimal.format(this.perimetre()) + " aire : " + formatDecimal.format(this.aire())
+        df = new DecimalFormat(formatPattern, symbols);
+
+        return "[Ellipse " + getRemplissage().getMode() + "] : pos (" + df.format(this.getPosition().getAbscisse()) + " , "
+                + df.format(this.getPosition().getOrdonnee()) + ") petit rayon "
+                + df.format(petitRayon) + " grand rayon "
+                + df.format(grandRayon) + " périmètre : "
+                + df.format(this.perimetre()) + " aire : " + df.format(this.aire())
                 + " couleur = " + rgb;
     }
 
