@@ -11,6 +11,7 @@ import fr.eseo.pdlo.projet.artiste.controleur.actions.ActionChoisirCouleur;
 import fr.eseo.pdlo.projet.artiste.controleur.actions.ActionChoisirForme;
 import fr.eseo.pdlo.projet.artiste.controleur.actions.ActionChoisirModeRemplissage;
 import fr.eseo.pdlo.projet.artiste.controleur.actions.ActionEffacer;
+import fr.eseo.pdlo.projet.artiste.controleur.actions.ActionGomme;
 import fr.eseo.pdlo.projet.artiste.controleur.actions.ActionSelectionner;
 import fr.eseo.pdlo.projet.artiste.modele.Remplissage;
 
@@ -40,6 +41,8 @@ public class PanneauBarreOutils extends JPanel {
                 JToggleButton boutonCarre = new JToggleButton(
                                 new ActionChoisirForme(panneauDessin, this, ActionChoisirForme.NOM_ACTION_CARRE));
                 JToggleButton boutonSelectionner = new JToggleButton(new ActionSelectionner(panneauDessin));
+                JToggleButton boutonGomme = new JToggleButton(new ActionGomme(panneauDessin));
+
 
                 boutonLigne.setName(ActionChoisirForme.NOM_ACTION_LIGNE);
                 boutonEllipse.setName(ActionChoisirForme.NOM_ACTION_ELLIPSE);
@@ -48,6 +51,8 @@ public class PanneauBarreOutils extends JPanel {
                 boutonCarre.setName(ActionChoisirForme.NOM_ACTION_CARRE);
                 boutonSelectionner.setName(ActionSelectionner.NOM_ACTION);
                 boutonSelectionner.setText(ActionSelectionner.NOM_ACTION);
+                boutonGomme.setName(ActionGomme.NOM_ACTION);
+                boutonGomme.setText(ActionGomme.NOM_ACTION);
 
                 buttonGroup.add(boutonLigne);
                 buttonGroup.add(boutonEllipse);
@@ -55,13 +60,16 @@ public class PanneauBarreOutils extends JPanel {
                 buttonGroup.add(boutonRectangle);
                 buttonGroup.add(boutonCarre);
                 buttonGroup.add(boutonSelectionner);
+                buttonGroup.add(boutonGomme);
 
                 this.add(boutonLigne);
                 this.add(boutonEllipse);
                 this.add(boutonCercle);
                 this.add(boutonRectangle);
                 this.add(boutonCarre);
+                this.add(boutonGomme);
                 this.add(boutonSelectionner);
+                
 
                 // Groupe boutons remplissage
                 ButtonGroup boutonsRemplissage = new ButtonGroup();

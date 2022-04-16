@@ -19,6 +19,13 @@ public abstract class OutilForme extends Outil {
     }
 
     @Override
+    public void mouseDragged(MouseEvent event) {
+        setFin(new Coordonnees(event.getX(), event.getY()));
+        this.getPanneauDessin().ajouterVueFormeTemporaire(this.creerVueForme()); 
+        this.getPanneauDessin().repaint();
+    }
+
+    @Override
     public void mouseReleased(MouseEvent event) {
         super.mouseReleased(event);
         if (!this.getDebut().equals(this.getFin())) {

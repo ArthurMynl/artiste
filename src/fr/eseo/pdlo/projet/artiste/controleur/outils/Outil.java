@@ -32,7 +32,6 @@ public abstract class Outil implements javax.swing.event.MouseInputListener {
     }
 
     public void mouseDragged(MouseEvent event) {
-
     }
 
     public void mouseEntered(MouseEvent event) {

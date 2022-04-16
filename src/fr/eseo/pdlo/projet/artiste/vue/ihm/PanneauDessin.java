@@ -18,6 +18,7 @@ public class PanneauDessin extends JPanel {
     public static final Color COULEUR_FOND_PAR_DEFAUT = new Color(255, 255, 255);
 
     private final List<VueForme> vueFormes = new ArrayList<VueForme>();
+    private VueForme vueFormeTemporaire;
 
     private Outil outilCourant;
     private Color couleurCourante;
@@ -30,6 +31,7 @@ public class PanneauDessin extends JPanel {
         this.setCouleurCourante(Forme.COULEUR_PAR_DEFAUT);
         this.setModeRemplissageCourant(Remplissage.AUCUNE);
         this.setAliasing(false);
+        this.vueFormeTemporaire = null;
     }
 
     public PanneauDessin(int largeur, int hauteur, Color couleur) {
@@ -38,6 +40,7 @@ public class PanneauDessin extends JPanel {
         this.setCouleurCourante(Forme.COULEUR_PAR_DEFAUT);
         this.setModeRemplissageCourant(Remplissage.AUCUNE);
         this.setAliasing(false);
+        this.vueFormeTemporaire = null;
     }
 
     public List<VueForme> getVueFormes() {
@@ -55,6 +58,9 @@ public class PanneauDessin extends JPanel {
         for (VueForme vueForme : vueFormes) {
             vueForme.affiche(g2D);
         }
+        if(vueFormeTemporaire != null) {
+            vueFormeTemporaire.affiche(g2D);
+        }
         g2D.dispose();
     }
 
@@ -65,10 +71,12 @@ public class PanneauDessin extends JPanel {
         outil.setPanneauDessin(this);
         setOutilCourant(outil);
         this.addMouseListener(outil);
+        this.addMouseMotionListener(outil);
     }
-    
+
     public void dissocierOutil() {
         this.removeMouseListener(this.getOutilCourant());
+        this.removeMouseMotionListener(this.getOutilCourant());
         setOutilCourant(null);
     }
 
@@ -102,5 +110,9 @@ public class PanneauDessin extends JPanel {
 
     public boolean getAliasing() {
         return aliasing;
+    }
+
+    public void ajouterVueFormeTemporaire(VueForme vueForme) {
+        this.vueFormeTemporaire = vueForme;
     }
 }
