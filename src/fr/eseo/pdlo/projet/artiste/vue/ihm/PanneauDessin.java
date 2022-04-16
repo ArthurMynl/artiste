@@ -112,7 +112,11 @@ public class PanneauDessin extends JPanel {
         return aliasing;
     }
 
-    public void ajouterVueFormeTemporaire(VueForme vueForme) {
+    public void setVueFormeTemporaire(VueForme vueForme) {
         this.vueFormeTemporaire = vueForme;
+    }
+
+    public VueForme getVueFormeTemporaire() {
+        return vueFormeTemporaire;
     }
 }

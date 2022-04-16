@@ -14,6 +14,7 @@ public abstract class OutilForme extends Outil {
             setDebut(new Coordonnees(event.getX(), event.getY()));
             setFin(new Coordonnees(event.getX() + Forme.LARGEUR_PAR_DEFAUT, event.getY() + Forme.HAUTEUR_PAR_DEFAUT));
             this.getPanneauDessin().ajouterVueForme(this.creerVueForme());
+            this.getPanneauDessin().setVueFormeTemporaire(null);
             this.getPanneauDessin().repaint();
         }
     }
@@ -21,7 +22,7 @@ public abstract class OutilForme extends Outil {
     @Override
     public void mouseDragged(MouseEvent event) {
         setFin(new Coordonnees(event.getX(), event.getY()));
-        this.getPanneauDessin().ajouterVueFormeTemporaire(this.creerVueForme()); 
+        this.getPanneauDessin().setVueFormeTemporaire(this.creerVueForme()); 
         this.getPanneauDessin().repaint();
     }
 
@@ -30,6 +31,7 @@ public abstract class OutilForme extends Outil {
         super.mouseReleased(event);
         if (!this.getDebut().equals(this.getFin())) {
             this.getPanneauDessin().ajouterVueForme(this.creerVueForme());
+            this.getPanneauDessin().setVueFormeTemporaire(null);
             this.getPanneauDessin().repaint();
         }
     }
