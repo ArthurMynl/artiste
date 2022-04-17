@@ -5,6 +5,7 @@ import fr.eseo.pdlo.projet.artiste.controleur.outils.OutilCercle;
 import fr.eseo.pdlo.projet.artiste.controleur.outils.OutilEllipse;
 import fr.eseo.pdlo.projet.artiste.controleur.outils.OutilLigne;
 import fr.eseo.pdlo.projet.artiste.controleur.outils.OutilRectangle;
+import fr.eseo.pdlo.projet.artiste.controleur.outils.OutilTrace;
 import fr.eseo.pdlo.projet.artiste.vue.ihm.PanneauBarreOutils;
 import fr.eseo.pdlo.projet.artiste.vue.ihm.PanneauDessin;
 
@@ -18,6 +19,7 @@ public class ActionChoisirForme extends AbstractAction {
     public static final String NOM_ACTION_CERCLE = "Cercle";
     public static final String NOM_ACTION_RECTANGLE = "Rectangle";
     public static final String NOM_ACTION_CARRE = "Carré";
+    public static final String NOM_ACTION_TRACE = "tracé";
 
     private PanneauDessin panneauDessin;
 
@@ -41,6 +43,9 @@ public class ActionChoisirForme extends AbstractAction {
         }
         else if (event.getActionCommand() == NOM_ACTION_CARRE) {
             panneauDessin.associerOutil(new OutilCarre());
+        }
+        else if (event.getActionCommand() == NOM_ACTION_TRACE) {
+            panneauDessin.associerOutil(new OutilTrace());
         }
     }
 }

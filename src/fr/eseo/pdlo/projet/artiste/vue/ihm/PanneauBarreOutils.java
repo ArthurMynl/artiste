@@ -42,6 +42,7 @@ public class PanneauBarreOutils extends JPanel {
                                 new ActionChoisirForme(panneauDessin, this, ActionChoisirForme.NOM_ACTION_CARRE));
                 JToggleButton boutonSelectionner = new JToggleButton(new ActionSelectionner(panneauDessin));
                 JToggleButton boutonGomme = new JToggleButton(new ActionGomme(panneauDessin));
+                JToggleButton boutonTrace = new JToggleButton(new ActionChoisirForme(panneauDessin, this, ActionChoisirForme.NOM_ACTION_TRACE));
 
 
                 boutonLigne.setName(ActionChoisirForme.NOM_ACTION_LIGNE);
@@ -53,6 +54,7 @@ public class PanneauBarreOutils extends JPanel {
                 boutonSelectionner.setText(ActionSelectionner.NOM_ACTION);
                 boutonGomme.setName(ActionGomme.NOM_ACTION);
                 boutonGomme.setText(ActionGomme.NOM_ACTION);
+                boutonTrace.setName(ActionChoisirForme.NOM_ACTION_TRACE);
 
                 buttonGroup.add(boutonLigne);
                 buttonGroup.add(boutonEllipse);
@@ -61,12 +63,14 @@ public class PanneauBarreOutils extends JPanel {
                 buttonGroup.add(boutonCarre);
                 buttonGroup.add(boutonSelectionner);
                 buttonGroup.add(boutonGomme);
+                buttonGroup.add(boutonTrace);
 
                 this.add(boutonLigne);
                 this.add(boutonEllipse);
                 this.add(boutonCercle);
                 this.add(boutonRectangle);
                 this.add(boutonCarre);
+                this.add(boutonTrace);
                 this.add(boutonGomme);
                 this.add(boutonSelectionner);
                 

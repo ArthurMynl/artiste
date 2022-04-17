@@ -6,6 +6,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
+
 public class VueRectangle extends VueForme {
     private Remplissage remplissage;
 
