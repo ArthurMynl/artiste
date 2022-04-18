@@ -10,7 +10,7 @@ import fr.eseo.pdlo.projet.artiste.vue.ihm.PanneauDessin;
 public class ActionChoisirCouleur extends AbstractAction {
     private PanneauDessin panneauDessin;
 
-    public static final String NOM_ACTION = "Choisir une couleur";
+    public static final String NOM_ACTION = "Couleur";
 
     public ActionChoisirCouleur(PanneauDessin panneauDessin) {
         super(NOM_ACTION);
@@ -22,6 +22,7 @@ public class ActionChoisirCouleur extends AbstractAction {
         java.awt.Color color = JColorChooser.showDialog(panneauDessin, NOM_ACTION, panneauDessin.getCouleurCourante());
         if (color != null) {
             panneauDessin.setCouleurCourante(color);
+            panneauDessin.setCouleurRemplissageCourante(color);
         }
     }
 }

@@ -16,14 +16,17 @@ public class VueLigne extends VueForme {
         g2d.setColor(getForme().getCouleur());
         if (getForme().getAliasing()) {
             g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        }
-        else {
+        } else {
             g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
         }
+        g2d.rotate(this.forme.getAngle(), this.forme.getPosition().getAbscisse() + this.forme.getLargeur() / 2,
+                this.forme.getPosition().getOrdonnee() + this.forme.getHauteur() / 2);
         g2d.drawLine((int) Math.round(this.forme.getPosition().getAbscisse()),
                 (int) Math.round(this.forme.getPosition().getOrdonnee()),
                 (int) Math.round(this.forme.getPosition().getAbscisse() + this.forme.getLargeur()),
                 (int) Math.round(this.forme.getPosition().getOrdonnee() + this.forme.getHauteur()));
         g2d.setColor(contextColor);
+        g2d.rotate(-this.forme.getAngle(), this.forme.getPosition().getAbscisse() + this.forme.getLargeur() / 2,
+                this.forme.getPosition().getOrdonnee() + this.forme.getHauteur() / 2);
     }
 }

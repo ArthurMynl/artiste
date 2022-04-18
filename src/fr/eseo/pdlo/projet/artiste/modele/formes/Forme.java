@@ -14,12 +14,14 @@ public abstract class Forme implements Coloriable, Aliasing {
     private Coordonnees position;
     private Color couleur;
     private boolean aliasing;
+    private double angle;
 
     public Forme() {
         this.largeur = LARGEUR_PAR_DEFAUT;
         this.hauteur = HAUTEUR_PAR_DEFAUT;
         this.position = new Coordonnees();
         this.couleur = COULEUR_PAR_DEFAUT;
+        this.angle = 0;
     }
 
     public Forme(double largeur, double hauteur) {
@@ -27,6 +29,7 @@ public abstract class Forme implements Coloriable, Aliasing {
         this.hauteur = hauteur;
         this.position = new Coordonnees();
         this.couleur = COULEUR_PAR_DEFAUT;
+        this.angle = 0;
     }
 
     public Forme(Coordonnees position) {
@@ -34,6 +37,7 @@ public abstract class Forme implements Coloriable, Aliasing {
         this.hauteur = HAUTEUR_PAR_DEFAUT;
         this.position = position;
         this.couleur = COULEUR_PAR_DEFAUT;
+        this.angle = 0;
     }
 
     public Forme(Coordonnees position, double largeur, double hauteur) {
@@ -41,6 +45,7 @@ public abstract class Forme implements Coloriable, Aliasing {
         this.hauteur = hauteur;
         this.position = position;
         this.couleur = COULEUR_PAR_DEFAUT;
+        this.angle = 0;
     }
 
     public double getLargeur() {
@@ -121,6 +126,14 @@ public abstract class Forme implements Coloriable, Aliasing {
 
     public void setAliasing(boolean aliasing) {
         this.aliasing = aliasing;
+    }
+
+    public void setAngle(double angle) {
+        this.angle = angle;
+    }
+
+    public double getAngle() {
+        return angle;
     }
     
     public abstract double aire();

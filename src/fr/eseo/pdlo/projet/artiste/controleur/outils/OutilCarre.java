@@ -18,29 +18,20 @@ public class OutilCarre extends OutilForme {
         if (largeur < 0 && hauteur < 0) {
             carre = new Carre(new Coordonnees(getDebut().getAbscisse() - taille, getDebut().getOrdonnee() - taille),
                     taille);
-            carre.setCouleur(getPanneauDessin().getCouleurCourante());
-            carre.setRemplissage(getPanneauDessin().getModeRemplissageCourant());
-            carre.setAliasing(getPanneauDessin().getAliasing());
-            ret = new VueCarre(carre);
         } else if (largeur < 0) {
             carre = new Carre(new Coordonnees(getDebut().getAbscisse() - taille, getDebut().getOrdonnee()), taille);
-            carre.setCouleur(getPanneauDessin().getCouleurCourante());
-            carre.setRemplissage(getPanneauDessin().getModeRemplissageCourant());
-            carre.setAliasing(getPanneauDessin().getAliasing());
-            ret = new VueCarre(carre);
         } else if (hauteur < 0) {
             carre = new Carre(new Coordonnees(getDebut().getAbscisse(), getDebut().getOrdonnee() - taille), taille);
-            carre.setCouleur(getPanneauDessin().getCouleurCourante());
-            carre.setRemplissage(getPanneauDessin().getModeRemplissageCourant());
-            carre.setAliasing(getPanneauDessin().getAliasing());
-            ret = new VueCarre(carre);
         } else {
             carre = new Carre(getDebut(), taille);
-            carre.setCouleur(getPanneauDessin().getCouleurCourante());
-            carre.setRemplissage(getPanneauDessin().getModeRemplissageCourant());
-            carre.setAliasing(getPanneauDessin().getAliasing());
-            ret = new VueCarre(carre);
         }
+
+        carre.setCouleur(getPanneauDessin().getCouleurCourante());
+        carre.setRemplissage(getPanneauDessin().getModeRemplissageCourant());
+        carre.setCouleurRemplissage(getPanneauDessin().getCouleurRemplissageCourante());
+        carre.setCouleurDegrade(getPanneauDessin().getCouleurDegrade());
+        carre.setAliasing(getPanneauDessin().getAliasing());
+        ret = new VueCarre(carre);
         return ret;
     }
 }

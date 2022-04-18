@@ -3,32 +3,39 @@ package fr.eseo.pdlo.projet.artiste.modele.formes;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
+import java.awt.Color;
 
 import fr.eseo.pdlo.projet.artiste.modele.Coordonnees;
 import fr.eseo.pdlo.projet.artiste.modele.Remplissable;
 import fr.eseo.pdlo.projet.artiste.modele.Remplissage;
 
 public class Rectangle extends Forme implements Remplissable {
-    private Remplissage remplissage; 
+    private Remplissage remplissage;
+    private Color couleurRemplissage;
+    private Color[] couleurDegrade;
 
     public Rectangle() {
         super();
         remplissage = Remplissage.AUCUNE;
+        couleurRemplissage = COULEUR_PAR_DEFAUT;
     }
 
     public Rectangle(Coordonnees position, double largeur, double hauteur) {
         super(position, largeur, hauteur);
         remplissage = Remplissage.AUCUNE;
+        couleurRemplissage = COULEUR_PAR_DEFAUT;
     }
 
     public Rectangle(Coordonnees position) {
         super(position);
         remplissage = Remplissage.AUCUNE;
+        couleurRemplissage = COULEUR_PAR_DEFAUT;
     }
 
     public Rectangle(double largeur, double hauteur) {
         super(largeur, hauteur);
         remplissage = Remplissage.AUCUNE;
+        couleurRemplissage = COULEUR_PAR_DEFAUT;
     }
 
     public void setLargeur(double largeur) {
@@ -99,5 +106,25 @@ public class Rectangle extends Forme implements Remplissable {
     @Override
     public void setRemplissage(Remplissage remplissage) {
         this.remplissage = remplissage;
+    }
+
+    @Override
+    public Color getCouleurRemplissage() {
+        return couleurRemplissage;
+    }
+
+    @Override
+    public void setCouleurRemplissage(Color couleurRemplissage) {
+        this.couleurRemplissage = couleurRemplissage;
+    }
+
+    @Override
+    public void setCouleurDegrade(Color[] couleurDegrade) {
+        this.couleurDegrade = couleurDegrade;
+    }
+
+    @Override
+    public Color[] getCouleurDegrade() {
+        return this.couleurDegrade;
     }
 }

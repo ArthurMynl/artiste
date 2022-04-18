@@ -7,13 +7,17 @@ import java.util.Locale;
 import fr.eseo.pdlo.projet.artiste.modele.Coordonnees;
 import fr.eseo.pdlo.projet.artiste.modele.Remplissable;
 import fr.eseo.pdlo.projet.artiste.modele.Remplissage;
+import java.awt.Color;
 
 public class Ellipse extends Forme implements Remplissable {
     private Remplissage remplissage;
+    private Color couleurRemplissage;
+    private Color[] couleurDegrade;
 
     public Ellipse() {
         super();
         remplissage = Remplissage.AUCUNE;
+        couleurRemplissage = COULEUR_PAR_DEFAUT;
     }
 
     public Ellipse(double largeur, double hauteur) {
@@ -24,11 +28,13 @@ public class Ellipse extends Forme implements Remplissable {
             throw new IllegalArgumentException("La hauteur doit être positive.");
         }
         remplissage = Remplissage.AUCUNE;
+        couleurRemplissage = COULEUR_PAR_DEFAUT;
     }
 
     public Ellipse(Coordonnees position) {
         super(position);
         remplissage = Remplissage.AUCUNE;
+        couleurRemplissage = COULEUR_PAR_DEFAUT;
     }
 
     public Ellipse(Coordonnees position, double largeur, double hauteur) {
@@ -39,6 +45,7 @@ public class Ellipse extends Forme implements Remplissable {
             throw new IllegalArgumentException("La hauteur doit être positive.");
         }
         remplissage = Remplissage.AUCUNE;
+        couleurRemplissage = COULEUR_PAR_DEFAUT;
     }
 
     public void setLargeur(double largeur) {
@@ -125,7 +132,6 @@ public class Ellipse extends Forme implements Remplissable {
             double eq2 = Math.pow(coordonnees.getOrdonnee() - centre.getOrdonnee(), 2) / Math.pow(grandRayon, 2);
             return eq1 + eq2 <= 1;
         }
-
     }
     
     @Override
@@ -136,5 +142,25 @@ public class Ellipse extends Forme implements Remplissable {
     @Override
     public void setRemplissage(Remplissage remplissage) {
         this.remplissage = remplissage;
+    }
+
+    @Override
+    public Color getCouleurRemplissage() {
+        return couleurRemplissage;
+    }
+
+    @Override
+    public void setCouleurRemplissage(Color couleurRemplissage) {
+        this.couleurRemplissage = couleurRemplissage;
+    }
+
+    @Override
+    public void setCouleurDegrade(Color[] couleurDegrade) {
+        this.couleurDegrade = couleurDegrade;
+    }
+
+    @Override
+    public Color[] getCouleurDegrade() {
+        return this.couleurDegrade;
     }
 }

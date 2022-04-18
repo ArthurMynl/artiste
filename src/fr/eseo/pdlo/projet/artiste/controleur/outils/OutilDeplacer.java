@@ -23,7 +23,6 @@ public class OutilDeplacer extends Outil {
                 }
             }
         }
-        System.out.println(formeSelectionnee);
     }
 
     @Override

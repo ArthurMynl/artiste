@@ -5,8 +5,7 @@ import fr.eseo.pdlo.projet.artiste.modele.formes.Ellipse;
 import fr.eseo.pdlo.projet.artiste.vue.formes.VueEllipse;
 import fr.eseo.pdlo.projet.artiste.vue.formes.VueForme;
 
-
-public class OutilEllipse extends OutilForme  {
+public class OutilEllipse extends OutilForme {
 
     @Override
     protected VueForme creerVueForme() {
@@ -17,30 +16,21 @@ public class OutilEllipse extends OutilForme  {
 
         if (largeur < 0 && hauteur < 0) {
             ellipse = new Ellipse(getFin(), -largeur, -hauteur);
-            ellipse.setCouleur(getPanneauDessin().getCouleurCourante());
-            ellipse.setRemplissage(getPanneauDessin().getModeRemplissageCourant());
-            ellipse.setAliasing(getPanneauDessin().getAliasing());
-            ret = new VueEllipse(ellipse);
         } else if (largeur < 0) {
-            ellipse = new Ellipse(new Coordonnees(getDebut().getAbscisse() + largeur, getDebut().getOrdonnee()), -largeur, hauteur);
-            ellipse.setCouleur(getPanneauDessin().getCouleurCourante());
-            ellipse.setRemplissage(getPanneauDessin().getModeRemplissageCourant());
-            ellipse.setAliasing(getPanneauDessin().getAliasing());
-            ret = new VueEllipse(ellipse);
+            ellipse = new Ellipse(new Coordonnees(getDebut().getAbscisse() + largeur, getDebut().getOrdonnee()),
+                    -largeur, hauteur);
         } else if (hauteur < 0) {
             ellipse = new Ellipse(new Coordonnees(getDebut().getAbscisse(), getDebut().getOrdonnee() + hauteur),
                     largeur, -hauteur);
-            ellipse.setCouleur(getPanneauDessin().getCouleurCourante());
-            ellipse.setRemplissage(getPanneauDessin().getModeRemplissageCourant());
-            ellipse.setAliasing(getPanneauDessin().getAliasing());
-            ret = new VueEllipse(ellipse);
-        } else { 
+        } else {
             ellipse = new Ellipse(getDebut(), largeur, hauteur);
-            ellipse.setCouleur(getPanneauDessin().getCouleurCourante());
-            ellipse.setRemplissage(getPanneauDessin().getModeRemplissageCourant());
-            ellipse.setAliasing(getPanneauDessin().getAliasing());
-            ret = new VueEllipse(ellipse);
         }
+        ellipse.setCouleur(getPanneauDessin().getCouleurCourante());
+        ellipse.setRemplissage(getPanneauDessin().getModeRemplissageCourant());
+        ellipse.setCouleurRemplissage(getPanneauDessin().getCouleurRemplissageCourante());
+        ellipse.setCouleurDegrade(getPanneauDessin().getCouleurDegrade());
+        ellipse.setAliasing(getPanneauDessin().getAliasing());
+        ret = new VueEllipse(ellipse);
         return ret;
     }
 }

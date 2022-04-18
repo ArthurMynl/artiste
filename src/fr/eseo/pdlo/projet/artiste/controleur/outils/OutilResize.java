@@ -2,6 +2,9 @@ package fr.eseo.pdlo.projet.artiste.controleur.outils;
 
 import java.awt.event.MouseEvent;
 
+import javax.swing.JOptionPane;
+
+import fr.eseo.pdlo.projet.artiste.controleur.actions.ActionResizeForme;
 import fr.eseo.pdlo.projet.artiste.modele.Coordonnees;
 import fr.eseo.pdlo.projet.artiste.modele.formes.Forme;
 
@@ -39,6 +42,9 @@ public class OutilResize extends Outil {
                 formeSelectionnee.setHauteur(hauteurInitiale);
                 formeSelectionnee = null;
                 debut = null;
+                JOptionPane.showMessageDialog(getPanneauDessin(),
+                        "Erreur: La largeur ou la hauteur ne peut pas être négative", ActionResizeForme.NOM_ACTION,
+                        JOptionPane.INFORMATION_MESSAGE);
             }
             getPanneauDessin().repaint();
         }

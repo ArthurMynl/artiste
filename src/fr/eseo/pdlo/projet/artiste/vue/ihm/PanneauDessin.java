@@ -23,12 +23,16 @@ public class PanneauDessin extends JPanel {
     private Outil outilCourant;
     private Color couleurCourante;
     private Remplissage modeRemplissageCourant;
+    private Color couleurRemplissageCourante;
+    private Color[] couleurDegrade;
     private boolean aliasing;
 
     public PanneauDessin() {
         this.setPreferredSize(new Dimension(LARGEUR_PAR_DEFAUT, HAUTEUR_PAR_DEFAUT));
         this.setBackground(COULEUR_FOND_PAR_DEFAUT);
         this.setCouleurCourante(Forme.COULEUR_PAR_DEFAUT);
+        this.setCouleurRemplissageCourante(Forme.COULEUR_PAR_DEFAUT);
+        this.setCouleurDegrade(new Color[] { Forme.COULEUR_PAR_DEFAUT, Forme.COULEUR_PAR_DEFAUT });
         this.setModeRemplissageCourant(Remplissage.AUCUNE);
         this.setAliasing(false);
         this.vueFormeTemporaire = null;
@@ -38,7 +42,9 @@ public class PanneauDessin extends JPanel {
         this.setPreferredSize(new Dimension(largeur, hauteur));
         this.setBackground(couleur);
         this.setCouleurCourante(Forme.COULEUR_PAR_DEFAUT);
+        this.setCouleurRemplissageCourante(Forme.COULEUR_PAR_DEFAUT);
         this.setModeRemplissageCourant(Remplissage.AUCUNE);
+        this.setCouleurDegrade(new Color[] { Forme.COULEUR_PAR_DEFAUT, Forme.COULEUR_PAR_DEFAUT });
         this.setAliasing(false);
         this.vueFormeTemporaire = null;
     }
@@ -88,12 +94,20 @@ public class PanneauDessin extends JPanel {
         outilCourant = outil;
     }
 
-    public java.awt.Color getCouleurCourante() {
+    public Color getCouleurCourante() {
         return couleurCourante;
     }
 
-    public void setCouleurCourante(java.awt.Color couleur) {
+    public void setCouleurCourante(Color couleur) {
         couleurCourante = couleur;
+    }
+
+    public void setCouleurRemplissageCourante(Color couleur) {
+        couleurRemplissageCourante = couleur;
+    }
+
+    public Color getCouleurRemplissageCourante() {
+        return couleurRemplissageCourante;
     }
 
     public Remplissage getModeRemplissageCourant() {
@@ -118,5 +132,13 @@ public class PanneauDessin extends JPanel {
 
     public VueForme getVueFormeTemporaire() {
         return vueFormeTemporaire;
+    }
+
+    public void setCouleurDegrade(Color[] couleur) {
+        this.couleurDegrade = couleur;
+    }
+
+    public Color[] getCouleurDegrade() {
+        return couleurDegrade;
     }
 }

@@ -19,7 +19,7 @@ public class ActionChoisirForme extends AbstractAction {
     public static final String NOM_ACTION_CERCLE = "Cercle";
     public static final String NOM_ACTION_RECTANGLE = "Rectangle";
     public static final String NOM_ACTION_CARRE = "Carré";
-    public static final String NOM_ACTION_TRACE = "tracé";
+    public static final String NOM_ACTION_TRACE = "Tracé";
 
     private PanneauDessin panneauDessin;
 
