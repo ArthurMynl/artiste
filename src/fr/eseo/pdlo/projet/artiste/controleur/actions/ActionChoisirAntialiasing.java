@@ -7,8 +7,8 @@ import javax.swing.AbstractAction;
 import fr.eseo.pdlo.projet.artiste.vue.ihm.PanneauDessin;
 
 public class ActionChoisirAntialiasing extends AbstractAction {
-    public static final String NOM_ACTION = "Aliasing";
-    public PanneauDessin panneauDessin;
+    public static final String NOM_ACTION = "Anti-aliasing";
+    private PanneauDessin panneauDessin;
 
     public ActionChoisirAntialiasing(PanneauDessin panneauDessin) {
         super(NOM_ACTION);

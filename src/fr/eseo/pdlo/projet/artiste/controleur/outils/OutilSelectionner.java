@@ -10,18 +10,19 @@ import javax.swing.JOptionPane;
 
 public class OutilSelectionner extends Outil {
 
-    Forme formeSelectionnee;
+    private Forme formeSelectionnee;
 
     @Override
     public void mouseClicked(MouseEvent event) {
-        if (!getPanneauDessin().getVueFormes().isEmpty()) {
-            for (int i = getPanneauDessin().getVueFormes().size() - 1; i > 0; i--) {
-                if (getPanneauDessin().getVueFormes().get(i).getForme()
-                        .contient(new Coordonnees(event.getX(), event.getY()))) {
-                    formeSelectionnee = getPanneauDessin().getVueFormes().get(i).getForme();
-                    break;
-                }
+    formeSelectionnee = null;
+        for (int i = getPanneauDessin().getVueFormes().size() - 1; i >= 0; i--) {
+            if (getPanneauDessin().getVueFormes().get(i).getForme()
+                    .contient(new Coordonnees(event.getX(), event.getY()))) {
+                formeSelectionnee = getPanneauDessin().getVueFormes().get(i).getForme();
+                break;
             }
+        }
+        if (formeSelectionnee != null) {
             JOptionPane.showMessageDialog(getPanneauDessin(), formeSelectionnee.toString(),
                     ActionSelectionner.NOM_ACTION,
                     JOptionPane.INFORMATION_MESSAGE);

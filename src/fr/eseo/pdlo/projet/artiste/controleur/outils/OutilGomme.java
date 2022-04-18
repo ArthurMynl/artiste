@@ -7,7 +7,6 @@ import fr.eseo.pdlo.projet.artiste.modele.Coordonnees;
 public class OutilGomme extends Outil {
     
 
-    // TODO: Debug 
     @Override
     public void mouseClicked(MouseEvent event) {
         for (int i = getPanneauDessin().getVueFormes().size() - 1; i >= 0; i--) {

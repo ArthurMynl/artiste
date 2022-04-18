@@ -1,13 +1,15 @@
 package fr.eseo.pdlo.projet.artiste.modele.formes;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
+import java.util.Locale;
 
 import fr.eseo.pdlo.projet.artiste.modele.Coordonnees;
 
 public class Trace extends Forme {
 
     private ArrayList<Coordonnees> points;
-    private final int EPSILON = 3;
 
     public Trace(Coordonnees pos1, Coordonnees pos2) {
         super(new Coordonnees(Math.min(pos1.getAbscisse(), pos2.getAbscisse()),
@@ -44,10 +46,12 @@ public class Trace extends Forme {
         }
     }
 
+    /*
     public void setPosition(Coordonnees pos) {
         this.deplacerVers(pos.getAbscisse(), pos.getOrdonnee());
     }
-
+    */
+    
     public void setLargeur(double largeur) {
         for (Coordonnees pos : this.getPoints()) {
             pos.setAbscisse(this.getPosition().getAbscisse()
@@ -66,10 +70,30 @@ public class Trace extends Forme {
 
     @Override
     public String toString() {
-        return String.format("[%s] pos : (%s, %s) dim : %s x %s longueur : %s nbLignes : %s ",
-                getClass().getSimpleName(), getPosition().getAbscisse(), getPosition().getOrdonnee(), getLargeur(),
-                getHauteur(),
-                perimetre(), this.points.size() - 1);
+        String formatPattern = "0.0#";
+        Locale locale = Locale.getDefault();
+        DecimalFormat df = null;
+        DecimalFormatSymbols symbols = null;
+        String rgb = null;
+
+        if (locale.getLanguage().equals(new Locale("fr").getLanguage())) {
+            symbols = new DecimalFormatSymbols(Locale.FRANCE);
+            rgb = "R" + getCouleur().getRed() + ",V" + getCouleur().getGreen() + ",B"
+                    + getCouleur().getBlue();
+        }
+        if (locale.getLanguage().equals(new Locale("en").getLanguage())) {
+            symbols = new DecimalFormatSymbols(Locale.ENGLISH);
+            rgb = "R" + getCouleur().getRed() + ",G" + getCouleur().getGreen() + ",B"
+                    + getCouleur().getBlue();
+        }
+
+        df = new DecimalFormat(formatPattern, symbols);
+
+        return  "[Tracé] : pos (" + df.format(this.getPosition().getAbscisse()) + " , "
+                + df.format(this.getPosition().getOrdonnee()) + ") largeur " + df.format(this.getLargeur())
+                + " hauteur " + df.format(this.getHauteur()) + " périmètre : " + df.format(this.perimetre())
+                + " nombre points : " + (this.points.size() - 1) + " couleur = " + rgb;
+
     }
 
     @Override
@@ -96,8 +120,6 @@ public class Trace extends Forme {
                 Ligne ligne = new Ligne(this.points.get(i));
                 ligne.setC2(this.points.get(i + 1));
                 if (ligne.contient(coordonnees)) {
-                    System.out.println(ligne.toString());
-                    System.out.println(coordonnees.toString());
                     return true;
                 }
             }

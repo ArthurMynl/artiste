@@ -6,7 +6,7 @@ import java.util.Locale;
 import fr.eseo.pdlo.projet.artiste.modele.Coordonnees;
 
 public class Ligne extends Forme {
-    public static final double EPSILON = 0.2;
+    public static final double EPSILON = 1;
     public Ligne(Coordonnees position, double largeur, double hauteur) {
         super(position, largeur, hauteur);
     }
