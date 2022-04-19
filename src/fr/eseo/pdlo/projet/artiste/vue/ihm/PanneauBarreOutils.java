@@ -14,6 +14,7 @@ import fr.eseo.pdlo.projet.artiste.controleur.actions.ActionChoisirModeRemplissa
 import fr.eseo.pdlo.projet.artiste.controleur.actions.ActionDeplacerForme;
 import fr.eseo.pdlo.projet.artiste.controleur.actions.ActionEffacer;
 import fr.eseo.pdlo.projet.artiste.controleur.actions.ActionGomme;
+import fr.eseo.pdlo.projet.artiste.controleur.actions.ActionGrille;
 import fr.eseo.pdlo.projet.artiste.controleur.actions.ActionResizeForme;
 import fr.eseo.pdlo.projet.artiste.controleur.actions.ActionRotationForme;
 import fr.eseo.pdlo.projet.artiste.controleur.actions.ActionSelectionner;
@@ -64,16 +65,19 @@ public class PanneauBarreOutils extends JPanel {
                 JButton boutonCouleur = new JButton(new ActionChoisirCouleur(panneauDessin));
                 JButton boutonCouleurRemplissage = new JButton(new ActionChoisirCouleurRemplissage(panneauDessin));
                 JToggleButton boutonAliasing = new JToggleButton(new ActionChoisirAntialiasing(panneauDessin));
+                JToggleButton boutonGrille = new JToggleButton(new ActionGrille(panneauDessin));
 
                 boutonEfface.setName(ActionEffacer.NOM_ACTION);
                 boutonCouleur.setName(ActionChoisirCouleur.NOM_ACTION);
                 boutonCouleurRemplissage.setName(ActionChoisirCouleurRemplissage.NOM_ACTION);
                 boutonAliasing.setName(ActionChoisirAntialiasing.NOM_ACTION);
+                boutonGrille.setName(ActionGrille.NOM_ACTION);
 
                 this.add(boutonEfface);
                 this.add(boutonCouleur);
                 this.add(boutonAliasing);
                 this.add(boutonCouleurRemplissage);
+                this.add(boutonGrille);
         }
         
 

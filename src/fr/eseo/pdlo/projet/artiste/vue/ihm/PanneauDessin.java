@@ -2,8 +2,10 @@ package fr.eseo.pdlo.projet.artiste.vue.ihm;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Stroke;
 import java.util.ArrayList;
 import java.util.List;
+import java.awt.BasicStroke;
 
 import javax.swing.JPanel;
 
@@ -26,6 +28,7 @@ public class PanneauDessin extends JPanel {
     private Color couleurRemplissageCourante;
     private Color[] couleurDegrade;
     private boolean aliasing;
+    private boolean grille;
 
     public PanneauDessin() {
         this.setPreferredSize(new Dimension(LARGEUR_PAR_DEFAUT, HAUTEUR_PAR_DEFAUT));
@@ -36,6 +39,7 @@ public class PanneauDessin extends JPanel {
         this.setModeRemplissageCourant(Remplissage.AUCUNE);
         this.setAliasing(false);
         this.vueFormeTemporaire = null;
+        this.grille = false;
     }
 
     public PanneauDessin(int largeur, int hauteur, Color couleur) {
@@ -47,6 +51,12 @@ public class PanneauDessin extends JPanel {
         this.setCouleurDegrade(new Color[] { Forme.COULEUR_PAR_DEFAUT, Forme.COULEUR_PAR_DEFAUT });
         this.setAliasing(false);
         this.vueFormeTemporaire = null;
+        this.grille = false;
+    }
+
+    public void setGrille() {
+        this.grille = !this.grille;
+        this.repaint();
     }
 
     public List<VueForme> getVueFormes() {
@@ -61,6 +71,15 @@ public class PanneauDessin extends JPanel {
         super.paintComponent(g);
 
         java.awt.Graphics2D g2D = (java.awt.Graphics2D) g.create();
+        if (this.grille) {
+            g2D.setColor(new Color(230, 230, 230));
+            for (int i = 0; i < this.getWidth(); i += (int) getWidth() / 40) {
+                g2D.drawLine(i, 0, i, this.getHeight());
+            }
+            for (int i = 0; i < this.getHeight(); i += (int) getHeight() / 40) {
+                g2D.drawLine(0, i, (int) this.getWidth(), i);
+            }
+        }
         for (VueForme vueForme : vueFormes) {
             vueForme.affiche(g2D);
         }
