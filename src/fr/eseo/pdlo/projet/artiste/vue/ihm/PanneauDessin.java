@@ -2,10 +2,8 @@ package fr.eseo.pdlo.projet.artiste.vue.ihm;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Stroke;
 import java.util.ArrayList;
 import java.util.List;
-import java.awt.BasicStroke;
 
 import javax.swing.JPanel;
 
@@ -20,6 +18,7 @@ public class PanneauDessin extends JPanel {
     public static final Color COULEUR_FOND_PAR_DEFAUT = new Color(255, 255, 255);
 
     private final List<VueForme> vueFormes = new ArrayList<VueForme>();
+
     private VueForme vueFormeTemporaire;
 
     private Outil outilCourant;
@@ -83,7 +82,7 @@ public class PanneauDessin extends JPanel {
         for (VueForme vueForme : vueFormes) {
             vueForme.affiche(g2D);
         }
-        if(vueFormeTemporaire != null) {
+        if (vueFormeTemporaire != null) {
             vueFormeTemporaire.affiche(g2D);
         }
         g2D.dispose();
