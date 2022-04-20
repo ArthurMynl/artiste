@@ -14,6 +14,7 @@ import fr.eseo.pdlo.projet.artiste.controleur.actions.ActionChoisirCouleurRempli
 import fr.eseo.pdlo.projet.artiste.controleur.actions.ActionChoisirForme;
 import fr.eseo.pdlo.projet.artiste.controleur.actions.ActionChoisirModeRemplissage;
 import fr.eseo.pdlo.projet.artiste.controleur.actions.ActionChoisirNombrePoints;
+import fr.eseo.pdlo.projet.artiste.controleur.actions.ActionChoisirNombrePointsEtoile;
 import fr.eseo.pdlo.projet.artiste.controleur.actions.ActionDeplacerForme;
 import fr.eseo.pdlo.projet.artiste.controleur.actions.ActionEffacer;
 import fr.eseo.pdlo.projet.artiste.controleur.actions.ActionEnregistrer;
@@ -28,11 +29,13 @@ public class PanneauBarreOutils extends JPanel {
 
     private PanneauDessin panneauDessin;
     private int nombrePoints;
+    private int nombrePointsEtoile;
 
     public PanneauBarreOutils(PanneauDessin panneauDessin) {
         super();
         this.panneauDessin = panneauDessin;
         this.nombrePoints = 3;
+        this.nombrePointsEtoile = 3;
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         initComponents();
     }
@@ -97,6 +100,14 @@ public class PanneauBarreOutils extends JPanel {
         this.nombrePoints = nombrePoints;
     }
 
+    public void setNombrePointsEtoiles(int nombrePointsEtoiles) {
+        this.nombrePointsEtoile = nombrePointsEtoiles;
+    }
+
+    public int getNombrePointsEtoiles() {
+        return nombrePointsEtoile;
+    }
+
     private void initBoutonsOutils() {
         ButtonGroup buttonGroup = new ButtonGroup();
 
@@ -120,10 +131,17 @@ public class PanneauBarreOutils extends JPanel {
         JToggleButton boutonRotation = new JToggleButton(new ActionRotationForme(panneauDessin));
         JToggleButton boutonPolygone = new JToggleButton(
                 new ActionChoisirForme(panneauDessin, this, ActionChoisirForme.NOM_ACTION_POLYGONE));
+        JToggleButton boutonEtoile = new JToggleButton(
+                new ActionChoisirForme(panneauDessin, this, ActionChoisirForme.NOM_ACTION_ETOILE));
 
-        JSpinner spinnerNbCotes = new JSpinner(new SpinnerNumberModel(3, 3, 50, 1));
-        this.nombrePoints = (int) spinnerNbCotes.getValue();
-        spinnerNbCotes.addChangeListener(new ActionChoisirNombrePoints(panneauDessin, this, boutonPolygone));
+        JSpinner spinnerNbCotesPolygone = new JSpinner(new SpinnerNumberModel(3, 3, 50, 1));
+        this.nombrePoints = (int) spinnerNbCotesPolygone.getValue();
+        spinnerNbCotesPolygone.addChangeListener(new ActionChoisirNombrePoints(panneauDessin, this, boutonPolygone));
+
+
+        JSpinner spinnerNbCotesEtoile = new JSpinner(new SpinnerNumberModel(3, 3, 20, 1));
+        this.nombrePointsEtoile = (int) spinnerNbCotesEtoile.getValue();
+        spinnerNbCotesEtoile.addChangeListener(new ActionChoisirNombrePointsEtoile(panneauDessin, this, boutonEtoile));
 
         boutonLigne.setName(ActionChoisirForme.NOM_ACTION_LIGNE);
         boutonEllipse.setName(ActionChoisirForme.NOM_ACTION_ELLIPSE);
@@ -139,6 +157,7 @@ public class PanneauBarreOutils extends JPanel {
         boutonResize.setName(ActionResizeForme.NOM_ACTION);
         boutonRotation.setName(ActionRotationForme.NOM_ACTION);
         boutonPolygone.setName(ActionChoisirForme.NOM_ACTION_POLYGONE);
+        boutonEtoile.setName(ActionChoisirForme.NOM_ACTION_ETOILE);
 
         buttonGroup.add(boutonLigne);
         buttonGroup.add(boutonEllipse);
@@ -146,6 +165,7 @@ public class PanneauBarreOutils extends JPanel {
         buttonGroup.add(boutonRectangle);
         buttonGroup.add(boutonCarre);
         buttonGroup.add(boutonPolygone);
+        buttonGroup.add(boutonEtoile);
         buttonGroup.add(boutonSelectionner);
         buttonGroup.add(boutonGomme);
         buttonGroup.add(boutonTrace);
@@ -159,7 +179,9 @@ public class PanneauBarreOutils extends JPanel {
         this.add(boutonRectangle);
         this.add(boutonCarre);
         this.add(boutonPolygone);
-        this.add(spinnerNbCotes);
+        this.add(spinnerNbCotesPolygone);
+        this.add(boutonEtoile);
+        this.add(spinnerNbCotesEtoile);
         this.add(boutonTrace);
         this.add(boutonGomme);
         this.add(boutonSelectionner);

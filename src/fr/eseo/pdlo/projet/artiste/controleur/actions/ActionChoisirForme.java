@@ -55,5 +55,8 @@ public class ActionChoisirForme extends AbstractAction {
         else if (event.getActionCommand() == NOM_ACTION_POLYGONE) {
             panneauDessin.associerOutil(new OutilPolygone(panneauOutils.getNombrePoints()));
         }
+        else if (event.getActionCommand() == NOM_ACTION_ETOILE) {
+            panneauDessin.associerOutil(new OutilPolygone(panneauOutils.getNombrePointsEtoiles()));
+        }
     }
 }

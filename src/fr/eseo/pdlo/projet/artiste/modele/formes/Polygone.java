@@ -103,6 +103,22 @@ public class Polygone extends Forme implements Remplissable {
                 + df.format(this.aire()) + " couleur = " + rgb;
     }
 
+    public void setLargeur(double largeur) {
+        if (largeur < 0) {
+            throw new IllegalArgumentException("La largeur doit être positive.");
+        }
+        super.setLargeur(largeur);
+        super.setHauteur(largeur);
+    }
+
+    public void setHauteur(double hauteur) {
+        if (hauteur < 0) {
+            throw new IllegalArgumentException("La hauteur doit être positive.");
+        }
+        super.setHauteur(hauteur);
+        super.setLargeur(hauteur);
+    }
+
     @Override
     public double aire() {
         ArrayList<Coordonnees> points = calculPoints();
