@@ -126,13 +126,14 @@ public class Polygone extends Forme implements Remplissable {
                 this.getPosition().getOrdonnee() + this.getHauteur() / 2);
 
         double aire = Math.pow(points.get(0).distanceVers(centre), 2) * Math.sin(2 * Math.PI / this.nombrePoints);
-        return aire * nombrePoints / 2;
+        return aire * points.size() / 2;
     }
 
     @Override
     public double perimetre() {
+        ArrayList<Coordonnees> points = calculPoints();
         double perimetre = 0;
-        for (int i = 0; i < this.nombrePoints; i++) {
+        for (int i = 0; i < points.size(); i++) {
             perimetre += this.calculPoints().get(i).distanceVers(this.calculPoints().get((i + 1) % this.nombrePoints));
         }
         return perimetre;
@@ -144,9 +145,9 @@ public class Polygone extends Forme implements Remplissable {
         ArrayList<Coordonnees> points = calculPoints();
         Coordonnees p3 = new Coordonnees(this.getPosition().getAbscisse() + this.getLargeur() / 2,
                 this.getPosition().getOrdonnee() + this.getHauteur() / 2);
-        for (int i = 0; i < this.nombrePoints; i++) {
+        for (int i = 0; i < points.size(); i++) {
             Coordonnees p1 = points.get(i);
-            Coordonnees p2 = points.get((i + 1) % this.nombrePoints);
+            Coordonnees p2 = points.get((i + 1) % points.size());
 
             double alpha = ((p2.getOrdonnee() - p3.getOrdonnee()) * (p.getAbscisse() - p3.getAbscisse())
                     + (p3.getAbscisse() - p2.getAbscisse()) * (p.getOrdonnee() - p3.getOrdonnee())) /

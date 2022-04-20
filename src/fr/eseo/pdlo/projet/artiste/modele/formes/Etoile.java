@@ -46,34 +46,7 @@ public class Etoile extends Polygone {
         }
         return points;
     }
-
-    @Override
-    public boolean contient(Coordonnees coordonnees) {
-        Coordonnees p = rotation(coordonnees);
-        ArrayList<Coordonnees> points = calculPoints();
-        Coordonnees p3 = new Coordonnees(this.getPosition().getAbscisse() + this.getLargeur() / 2,
-                this.getPosition().getOrdonnee() + this.getHauteur() / 2);
-        for (int i = 0; i < getNombrePoints() * 2; i++) {
-            Coordonnees p1 = points.get(i);
-            Coordonnees p2 = points.get((i + 1) % this.getNombrePoints() * 2);
-
-            double alpha = ((p2.getOrdonnee() - p3.getOrdonnee()) * (p.getAbscisse() - p3.getAbscisse())
-                    + (p3.getAbscisse() - p2.getAbscisse()) * (p.getOrdonnee() - p3.getOrdonnee())) /
-                    ((p2.getOrdonnee() - p3.getOrdonnee()) * (p1.getAbscisse() - p3.getAbscisse())
-                            + (p3.getAbscisse() - p2.getAbscisse()) * (p1.getOrdonnee() - p3.getOrdonnee()));
-            double beta = ((p3.getOrdonnee() - p1.getOrdonnee()) * (p.getAbscisse() - p3.getAbscisse())
-                    + (p1.getAbscisse() - p3.getAbscisse()) * (p.getOrdonnee() - p3.getOrdonnee())) /
-                    ((p2.getOrdonnee() - p3.getOrdonnee()) * (p1.getAbscisse() - p3.getAbscisse())
-                            + (p3.getAbscisse() - p2.getAbscisse()) * (p1.getOrdonnee() - p3.getOrdonnee()));
-            double gamma = 1 - alpha - beta;
-
-            if (alpha >= 0 && beta >= 0 && gamma >= 0) {
-                return true;
-            }
-        }
-        return false;
-    }
-
+    
     @Override
     public String toString() {
         String formatPattern = "0.0#";

@@ -3,6 +3,7 @@ package fr.eseo.pdlo.projet.artiste.controleur.actions;
 import fr.eseo.pdlo.projet.artiste.controleur.outils.OutilCarre;
 import fr.eseo.pdlo.projet.artiste.controleur.outils.OutilCercle;
 import fr.eseo.pdlo.projet.artiste.controleur.outils.OutilEllipse;
+import fr.eseo.pdlo.projet.artiste.controleur.outils.OutilEtoile;
 import fr.eseo.pdlo.projet.artiste.controleur.outils.OutilLigne;
 import fr.eseo.pdlo.projet.artiste.controleur.outils.OutilPolygone;
 import fr.eseo.pdlo.projet.artiste.controleur.outils.OutilRectangle;
@@ -56,7 +57,7 @@ public class ActionChoisirForme extends AbstractAction {
             panneauDessin.associerOutil(new OutilPolygone(panneauOutils.getNombrePoints()));
         }
         else if (event.getActionCommand() == NOM_ACTION_ETOILE) {
-            panneauDessin.associerOutil(new OutilPolygone(panneauOutils.getNombrePointsEtoiles()));
+            panneauDessin.associerOutil(new OutilEtoile(panneauOutils.getNombrePointsEtoiles()));
         }
     }
 }

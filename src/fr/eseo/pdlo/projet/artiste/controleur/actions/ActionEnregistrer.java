@@ -38,9 +38,10 @@ public class ActionEnregistrer extends AbstractAction {
         fileChooser.showSaveDialog(panneauDessin);
         
         File file = fileChooser.getSelectedFile();
+        File file2 = new File(file.getAbsolutePath() + ".png");
 
         try {
-            ImageIO.write(image, "png", file);
+            ImageIO.write(image, "png", file2);
         } catch (IOException e1) {
             e1.printStackTrace();
         }

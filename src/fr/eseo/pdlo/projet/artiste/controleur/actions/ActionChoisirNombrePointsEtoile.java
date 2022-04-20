@@ -25,7 +25,7 @@ public class ActionChoisirNombrePointsEtoile implements ChangeListener {
     @Override
     public void stateChanged(javax.swing.event.ChangeEvent event) {
         int nombrePoints = Integer.parseInt(((JSpinner) event.getSource()).getValue().toString());
-        this.panneauBarreOutils.setNombrePoints(nombrePoints);
+        this.panneauBarreOutils.setNombrePointsEtoiles(nombrePoints);
         if(boutonPolygone.isSelected()) {
             this.panneauDessin.associerOutil(new OutilEtoile(nombrePoints));
         }
