@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 
 public class ActionResizeForme extends AbstractAction {
-    public static final String NOM_ACTION = "Resize";
+    public static final String NOM_ACTION = "Redimensionner";
     private PanneauDessin panneauDessin;
     
     public ActionResizeForme(PanneauDessin panneauDessin) {

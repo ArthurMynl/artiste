@@ -104,6 +104,18 @@ public abstract class Forme implements Coloriable, Aliasing {
         }
     }
 
+    public Coordonnees rotation(Coordonnees coordonnees) {
+        Coordonnees centre = new Coordonnees(getPosition().getAbscisse() + getLargeur() / 2, getPosition().getOrdonnee() + getHauteur() / 2);
+    
+        double deltaX = coordonnees.getAbscisse() - centre.getAbscisse();
+        double deltaY = coordonnees.getOrdonnee() - centre.getOrdonnee();
+
+        double x = deltaX * Math.cos(getAngle()) + deltaY * Math.sin(getAngle()) + centre.getAbscisse();
+        double y = - deltaX * Math.sin(getAngle()) + deltaY * Math.cos(getAngle()) + centre.getOrdonnee();
+
+        return new Coordonnees(x, y);
+    }
+
     public double getCadreMaxY() {
         if (hauteur < 0) {
             return this.getPosition().getOrdonnee();

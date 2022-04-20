@@ -36,7 +36,7 @@ public class VueCercle extends VueEllipse {
                 (int) Math.round(this.forme.getPosition().getOrdonnee()),
                 (int) Math.round(this.forme.getLargeur()), (int) Math.round(this.forme.getHauteur()));
         if (remplissage == Remplissage.UNIFORME) {
-            // g2d.setColor(couleurRemplissage);
+            g2d.setColor(couleurRemplissage);
             g2d.fillOval((int) Math.round(this.forme.getPosition().getAbscisse()),
                     (int) Math.round(this.forme.getPosition().getOrdonnee()),
                     (int) Math.round(this.forme.getLargeur()), (int) Math.round(this.forme.getHauteur()));

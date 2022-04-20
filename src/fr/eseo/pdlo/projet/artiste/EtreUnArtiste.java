@@ -44,6 +44,7 @@ public class EtreUnArtiste {
         PanneauDessin panneauDessin = new PanneauDessin(largeur, hauteur, java.awt.Color.WHITE);
         PanneauBarreEtat panneauBarreEtat = new PanneauBarreEtat(panneauDessin);
         PanneauBarreOutils panneauBarreOutil = new PanneauBarreOutils(panneauDessin);
+        // PanneauBarreOutilsImproved panneauBarreOutilImproved = new PanneauBarreOutilsImproved(panneauDessin);
 
         root.add(panneauBarreEtat, BorderLayout.SOUTH);
         root.add(panneauBarreOutil, BorderLayout.EAST);

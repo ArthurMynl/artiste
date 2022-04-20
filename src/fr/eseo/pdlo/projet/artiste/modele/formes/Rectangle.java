@@ -92,17 +92,26 @@ public class Rectangle extends Forme implements Remplissable {
 
     @Override
     public boolean contient(Coordonnees coordonnees) {
-        return coordonnees.getAbscisse() >= getPosition().getAbscisse()
-                && coordonnees.getAbscisse() <= getPosition().getAbscisse() + getLargeur()
-                && coordonnees.getOrdonnee() >= getPosition().getOrdonnee()
-                && coordonnees.getOrdonnee() <= getPosition().getOrdonnee() + getHauteur();
+
+        System.out.println(coordonnees);
+        coordonnees = rotation(coordonnees);
+        System.out.println(coordonnees);
+
+        if (coordonnees.getAbscisse() >= getPosition().getAbscisse()
+                && coordonnees.getAbscisse() <= getPosition().getAbscisse() + getLargeur()) {
+            if (coordonnees.getOrdonnee() >= getPosition().getOrdonnee()
+                    && coordonnees.getOrdonnee() <= getPosition().getOrdonnee() + getHauteur()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
     public Remplissage getRemplissage() {
         return remplissage;
     }
-    
+
     @Override
     public void setRemplissage(Remplissage remplissage) {
         this.remplissage = remplissage;

@@ -82,6 +82,7 @@ public class Carre extends Rectangle {
 
     @Override
     public boolean contient(Coordonnees coordonnees) {
+        coordonnees = rotation(coordonnees);
         return coordonnees.getAbscisse() >= getPosition().getAbscisse()
                 && coordonnees.getAbscisse() <= getPosition().getAbscisse() + getLargeur()
                 && coordonnees.getOrdonnee() >= getPosition().getOrdonnee()

@@ -109,6 +109,7 @@ public class Ellipse extends Forme implements Remplissable {
 
     @Override
     public boolean contient(Coordonnees coordonnees) {
+        coordonnees = rotation(coordonnees);
         double petitRayon;
         double grandRayon;
         Coordonnees centre;

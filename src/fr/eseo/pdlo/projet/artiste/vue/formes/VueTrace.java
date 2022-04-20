@@ -24,6 +24,7 @@ public class VueTrace extends VueForme {
             xPoints[i] = (int) Math.round(this.trace.getPoints().get(i).getAbscisse());
             yPoints[i] = (int) Math.round(this.trace.getPoints().get(i).getOrdonnee());
         }
+        
         Color contextColor = g2d.getColor();
         g2d.setColor(getForme().getCouleur());
         if (getForme().getAliasing()) {

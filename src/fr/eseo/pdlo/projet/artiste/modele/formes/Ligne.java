@@ -88,6 +88,7 @@ public class Ligne extends Forme {
 
     @Override
     public boolean contient(Coordonnees coordonnees) {
+        coordonnees = rotation(coordonnees);
         return this.getC1().distanceVers(coordonnees) + this.getC2().distanceVers(coordonnees)
                 - this.perimetre() < EPSILON;
     }
