@@ -11,14 +11,14 @@ import fr.eseo.pdlo.projet.artiste.vue.ihm.PanneauDessin;
 public class ActionChoisirNombrePointsEtoile implements ChangeListener {
 
     private PanneauDessin panneauDessin;
-    private JToggleButton boutonPolygone;
+    private JToggleButton boutonEtoile;
     private PanneauBarreOutils panneauBarreOutils;
     
 
-    public ActionChoisirNombrePointsEtoile(PanneauDessin panneauDessin, PanneauBarreOutils panneauBarreOutils, JToggleButton boutonPolygone) {
+    public ActionChoisirNombrePointsEtoile(PanneauDessin panneauDessin, PanneauBarreOutils panneauBarreOutils, JToggleButton boutonEtoile) {
         this.panneauDessin = panneauDessin;
         this.panneauBarreOutils = panneauBarreOutils;
-        this.boutonPolygone = boutonPolygone;
+        this.boutonEtoile = boutonEtoile;
     }
 
 
@@ -26,7 +26,7 @@ public class ActionChoisirNombrePointsEtoile implements ChangeListener {
     public void stateChanged(javax.swing.event.ChangeEvent event) {
         int nombrePoints = Integer.parseInt(((JSpinner) event.getSource()).getValue().toString());
         this.panneauBarreOutils.setNombrePointsEtoiles(nombrePoints);
-        if(boutonPolygone.isSelected()) {
+        if(boutonEtoile.isSelected()) {
             this.panneauDessin.associerOutil(new OutilEtoile(nombrePoints));
         }
     }
